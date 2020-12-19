@@ -1,0 +1,12 @@
+.adjustments {
+  @include flexColumnTopLeft;
+  border: $devBorder solid blue;
+  width: 100%;
+  text-align: center;
+  .adjustSection {
+    @include flexColumnTopLeft;
+    border: $devBorder solid orange;
+    width: 100%;
+    padding: $spacer1;
+  }
+}

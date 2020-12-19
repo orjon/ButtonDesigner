@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="]" dir="ltr">
+  <head>
+    <!-- <link rel='shortcut icon' type='image/x-icon' href='./images/favicon.ico' /> -->
+    <meta charset="utf-8" />
+    <title>ButtonMaker</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="scripts/main.js"></script>
+  </head>
+  <body class="flexColumnCenter">
+    <div class="buttonMaker">
+      <header>
+        <h1>Button</h1>
+      </header>
+
+      <main>
+        <div class="buttonDemo">
+          <button id="button">Button text</button>
+        </div>
+        <div class="adjustments">
+          <h3>Adjustments</h3>
+          <section class="adjustSection adjustSize">
+            <h4>Size</h4>
+            <div class="sliderContainer">
+              <div class="sliderLabel">
+                Height: <span id="valueHeight">30px</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="30"
+                class="slider"
+                id="settingHeight"
+              />
+            </div>
+            <div class="sliderContainer">
+              <div class="sliderLabel">
+                Width: <span id="valueWidth">100px</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="500"
+                value="100"
+                class="slider"
+                id="settingWidth"
+              />
+            </div>
+            <div class="sliderContainer">
+              <div class="sliderLabel">
+                Border Radius: <span id="valueBorderRadius">5px</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="20"
+                value="5"
+                class="slider"
+                id="settingBorderRadius"
+              />
+            </div>
+            
+          </div>
+          </section>
+          <section class="adjustSection adjustSize">
+            <h4>Shadow</h4>
+            <div class="sliderContainer">
+              <div class="sliderLabel">A<span class="valueHeight"></span></div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="30"
+                class="slider"
+                id="A"
+              />
+            </div>
+            <div class="sliderContainer">
+              <div class="sliderLabel">B<span class="valueWidth"></span></div>
+              <input
+                type="range"
+                min="0"
+                max="500"
+                value="100"
+                class="slider"
+                id="B"
+              />
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

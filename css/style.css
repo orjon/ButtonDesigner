@@ -1,0 +1,114 @@
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 0px solid lime;
+  padding: 10px;
+  width: 100%;
+}
+.sliderContainer .sliderLabel {
+  color: white;
+  margin-bottom: 10px;
+  font-size: small;
+}
+.sliderContainer .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background-color: #111;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 1s;
+}
+.sliderContainer .slider:active {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background-color: #00ccff;
+  border: 1px solid #3333ff;
+  box-shadow: 0px 0px 15px #5555ff;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 1s;
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  color: white;
+  background-color: dodgerblue;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.adjustments {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 0px solid blue;
+  width: 100%;
+  text-align: center;
+}
+.adjustments .adjustSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 0px solid orange;
+  width: 100%;
+  padding: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  background-color: #222;
+  color: #ccc;
+  padding: 0;
+  margin: 0;
+  font-family: "Karla", sans-serif;
+}
+
+/* make text unhighlightable */
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  border: 0px solid red;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .buttonMaker {
+  border: 0px solid orange;
+  max-width: 800px;
+  width: 100%;
+}
+body .buttonMaker header {
+  border: 0px solid blue;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+body .buttonMaker .buttonDemo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0px solid blue;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
