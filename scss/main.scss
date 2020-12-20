@@ -1,8 +1,7 @@
 @import 'variables';
 @import 'flexLayouts';
-@import 'slider';
-@import 'button';
 @import 'adjustments';
+@import 'buttonPreview';
 
 * {
   box-sizing: border-box;
@@ -38,12 +37,9 @@ body {
       margin-bottom: $spacer1;
       text-align: center;
     }
-    .buttonDemo {
-      @include flexColumnCenter;
-      border: $devBorder solid blue;
-      width: 100%;
-      margin-bottom: $spacer1;
-      text-align: center;
+    main {
+      border: $devBorder solid yellow;
+      @include flexRowStart;
     }
   }
 }

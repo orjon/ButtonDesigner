@@ -1,14 +1,15 @@
-@import 'slider';
+@import 'button';
 
-.adjustments {
+.buttonPreview {
   @include flexColumnTopLeft;
   border: $devBorder solid blue;
-  width: 350px;
+  width: 100%;
   text-align: center;
-  .adjustSection {
-    @include flexColumnTopLeft;
+  .buttonContainer {
+    @include flexColumnCenter;
     border: $devBorder solid orange;
     width: 100%;
+    height: 100%;
     padding: $spacer1;
   }
 }

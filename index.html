@@ -10,24 +10,21 @@
   <body class="flexColumnCenter">
     <div class="buttonMaker">
       <header>
-        <h1>Button</h1>
+        <h1>Button Maker</h1>
       </header>
 
       <main>
-        <div class="buttonDemo">
-          <button id="button">Button text</button>
-        </div>
         <div class="adjustments">
           <h3>Adjustments</h3>
           <section class="adjustSection adjustSize">
             <h4>Size</h4>
             <div class="sliderContainer">
               <div class="sliderLabel">
-                Height: <span id="valueHeight">30px</span>
+                Height: <span id="heightValue">30px</span>
               </div>
               <input
                 type="range"
-                min="0"
+                min="1"
                 max="100"
                 value="30"
                 class="slider"
@@ -36,11 +33,11 @@
             </div>
             <div class="sliderContainer">
               <div class="sliderLabel">
-                Width: <span id="valueWidth">100px</span>
+                Width: <span id="widthValue">100px</span>
               </div>
               <input
                 type="range"
-                min="0"
+                min="1"
                 max="500"
                 value="100"
                 class="slider"
@@ -49,7 +46,7 @@
             </div>
             <div class="sliderContainer">
               <div class="sliderLabel">
-                Border Radius: <span id="valueBorderRadius">5px</span>
+                Border Radius: <span id="borderRadiusValue">5px</span>
               </div>
               <input
                 type="range"
@@ -60,8 +57,6 @@
                 id="settingBorderRadius"
               />
             </div>
-            
-          </div>
           </section>
           <section class="adjustSection adjustSize">
             <h4>Shadow</h4>
@@ -88,6 +83,12 @@
               />
             </div>
           </section>
+        </div>
+        <div class="buttonPreview">
+          <h3>Preview</h3>
+          <div class="buttonContainer">
+            <button id="button">Button text</button>
+          </div>
         </div>
       </main>
     </div>

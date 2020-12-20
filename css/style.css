@@ -15,22 +15,28 @@
 .sliderContainer .slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 10px;
+  height: 5px;
   background-color: #111;
   outline: none;
-  -webkit-transition: 0.2s;
-  transition: opacity 1s;
 }
-.sliderContainer .slider:active {
-  -webkit-appearance: none;
+
+.adjustments {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 0px solid blue;
+  width: 350px;
+  text-align: center;
+}
+.adjustments .adjustSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 0px solid orange;
   width: 100%;
-  height: 10px;
-  background-color: #00ccff;
-  border: 1px solid #3333ff;
-  box-shadow: 0px 0px 15px #5555ff;
-  outline: none;
-  -webkit-transition: 0.2s;
-  transition: opacity 1s;
+  padding: 10px;
 }
 
 button {
@@ -42,7 +48,7 @@ button {
   border-radius: 5px;
 }
 
-.adjustments {
+.buttonPreview {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -51,13 +57,14 @@ button {
   width: 100%;
   text-align: center;
 }
-.adjustments .adjustSection {
+.buttonPreview .buttonContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   border: 0px solid orange;
   width: 100%;
+  height: 100%;
   padding: 10px;
 }
 
@@ -100,15 +107,11 @@ body .buttonMaker header {
   margin-bottom: 10px;
   text-align: center;
 }
-body .buttonMaker .buttonDemo {
+body .buttonMaker main {
+  border: 0px solid yellow;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 0px solid blue;
-  width: 100%;
-  margin-bottom: 10px;
-  text-align: center;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 /*# sourceMappingURL=style.css.map */

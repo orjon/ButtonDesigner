@@ -1,63 +1,38 @@
 window.addEventListener('DOMContentLoaded', () => {
   const settingHeight = document.getElementById('settingHeight');
   const settingWidth = document.getElementById('settingWidth');
-  const settingRadius = document.getElementById('settingRadius');
+  const settingBorderRadius = document.getElementById('settingBorderRadius');
 
   const valueHeight = document.getElementById('valueHeight');
   const valueWidth = document.getElementById('valueWidth');
 
   const button = document.getElementById('button');
 
+  const capitalize = (s) => {
+    if (typeof s !== 'string') return '';
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+
   let height = 30;
   let width = 100;
   let borderRadius = 5;
 
-  settingHeight.addEventListener('change', (e) => {
-    height = e.target.value + 'px';
-    button.style.height = height;
-    valueHeight.innerHTML = height;
-    // console.log('Height: ' + height);
-  });
+  const sliderInput = (sliderField, value, units) => {
+    // console.log(sliderField, value, units);
+    button.style[sliderField] = value + units;
+    valueField = sliderField + 'Value';
+    this[valueField].innerHTML = value + units;
+  };
 
-  settingWidth.addEventListener('change', (e) => {
-    width = e.target.value + 'px';
-    button.style.width = width;
-    valueWidth.innerHTML = width;
-    // console.log('Width: ' + width);
-  });
+  settingHeight.oninput = function () {
+    sliderInput('height', this.value, 'px');
+  };
 
-  settingBorderRadius.addEventListener('change', (e) => {
-    borderRadius = e.target.value + 'px';
-    button.style.borderRadius = borderRadius;
-    valueBorderRadius.innerHTML = borderRadius;
-  });
+  settingWidth.oninput = function () {
+    sliderInput('width', this.value, 'px');
+  };
 
-  // const wavAfter = document.querySelector('.afterWav');
-
-  // const buttons = document.querySelectorAll('.button');
-
-  // const buttonAfter = document.querySelector('.after');
-
-  // helmets.addEventListener('mousedown', (e) => {
-  //   console.log('reset');
-  //   location.reload();
-  // });
-
-  // buttons.forEach((name) => {
-  //   name.addEventListener('mouseout', (event) => {
-  //     event.target.classList.remove('clicked');
-  //   });
-  //   name.addEventListener('mouseup', (event) => {
-  //     event.target.classList.remove('clicked');
-  //   });
-  //   name.addEventListener('mousedown', (event) => {
-  //     event.target.classList.add('clicked');
-  //   });
-  // });
-
-  // buttonMakeit.addEventListener('mousedown', () => {
-  //   wavMakeit.currentTime = 0;
-  //   wavMakeit.playbackRate = speed;
-  //   wavMakeit.play();
-  // });
+  settingBorderRadius.oninput = function () {
+    sliderInput('borderRadius', this.value, 'px');
+  };
 });
