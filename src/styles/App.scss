@@ -1,0 +1,45 @@
+@import 'Variables';
+@import 'FlexLayouts';
+@import 'Adjustments';
+@import 'ButtonPreview';
+
+* {
+  box-sizing: border-box;
+  background-color: #222;
+  color: #ccc;
+  padding: 0;
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+}
+
+/* make text unhighlightable */
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  border: $devBorder solid red;
+  height: 100vh;
+  width: 100vw;
+  padding: $bodyPadding;
+  @include flexColumnCenter;
+  .buttonMaker {
+    border: $devBorder solid orange;
+    max-width: 800px;
+    width: 100%;
+    header {
+      border: $devBorder solid blue;
+      width: 100%;
+      margin-bottom: $spacer1;
+      text-align: center;
+    }
+    main {
+      border: $devBorder solid yellow;
+      @include flexRowStart;
+    }
+  }
+}
