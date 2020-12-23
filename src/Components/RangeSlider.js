@@ -13,17 +13,18 @@ const RangeSlider = ({
   initial,
   min,
   max,
-  percentage,
+  percentageOption,
   setHeight,
   setWidth,
   setBorderRadius,
   setTextSize,
 }) => {
   const [sliderValue, setSliderValue] = useState(initial);
+  const [usePercentage, setUsePercentage] = useState(false);
 
   let sliderUnit = 'px';
 
-  if (percentage) {
+  if (usePercentage) {
     sliderUnit = '%';
   } else {
     switch (field) {
@@ -40,7 +41,11 @@ const RangeSlider = ({
     }
   }
 
-  const handleChange = (e) => {
+  const handleCheckboxChange = (e) => {
+    setUsePercentage(e.target.checked);
+  };
+
+  const handleSliderChange = (e) => {
     setSliderValue(e.target.value);
     switch (field) {
       case 'height':
@@ -72,29 +77,32 @@ const RangeSlider = ({
               {sliderUnit}
             </span>
           </div>
-          {percentage && (
+          {percentageOption && (
             <div className='percentageOption'>
-              <label for='percentage'>
-                <strong>%</strong>&nbsp;
-              </label>
-              <input
-                style={{ verticalAlign: 'bottom' }}
-                type='checkbox'
-                id='percentage'
-                name='usePercentage'
-                value='false'
-              />
+              <form>
+                <label for='percentage'>
+                  <strong>%</strong>&nbsp;
+                </label>
+                <input
+                  style={{ verticalAlign: 'bottom' }}
+                  type='checkbox'
+                  id='percentage'
+                  name='usePercentage'
+                  checked={usePercentage}
+                  onChange={handleCheckboxChange}
+                />
+              </form>
             </div>
           )}
         </div>
-        {percentage ? (
+        {usePercentage ? (
           <input
             className='slider'
             type='range'
             min={0}
-            max={100}
+            max={50}
             defaultValue={sliderValue}
-            onChange={handleChange}
+            onChange={handleSliderChange}
           />
         ) : (
           <input
@@ -103,7 +111,7 @@ const RangeSlider = ({
             min={min}
             max={max}
             defaultValue={sliderValue}
-            onChange={handleChange}
+            onChange={handleSliderChange}
           />
         )}
       </div>

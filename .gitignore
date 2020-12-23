@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# Old version
+/JS_version
+
 # testing
 /coverage
 

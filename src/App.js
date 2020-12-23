@@ -1,4 +1,5 @@
-import RangeSlider from './Components/RangeSlider';
+import React from 'react';
+import Adjustments from './Components/Adjustments';
 import Button from './Components/Button';
 import './styles/App.scss';
 
@@ -6,7 +7,8 @@ import './styles/App.scss';
 import { Provider } from 'react-redux';
 import store from './store';
 
-function App() {
+const App = (buttonValues) => {
+  console.log(store);
   return (
     <Provider store={store}>
       <div className='App'>
@@ -17,30 +19,7 @@ function App() {
             </header>
 
             <main>
-              <div className='adjustments'>
-                <h3>Adjustments</h3>
-
-                <section className='adjustSection adjustSize'>
-                  <h4>Button Size</h4>
-                  <RangeSlider field='height' initial={30} min={1} max={200} />
-                  <RangeSlider field='width' initial={100} min={1} max={500} />
-                  <RangeSlider
-                    field='borderRadius'
-                    initial={50}
-                    min={0}
-                    max={250}
-                    percentage='true'
-                  />
-                </section>
-                <section className='adjustSection adjustSize'>
-                  <h4>Text</h4>
-                  <RangeSlider field='textSize' initial={30} min={1} max={50} />
-                </section>
-                <section className='adjustSection adjustSize'>
-                  <h4>Margin &amp; Padding</h4>
-                  <RangeSlider field='textSize' initial={30} min={1} max={50} />
-                </section>
-              </div>
+              <Adjustments />
               <div className='buttonPreview'>
                 <h3>Preview</h3>
                 <Button />
@@ -51,6 +30,6 @@ function App() {
       </div>
     </Provider>
   );
-}
+};
 
 export default App;
