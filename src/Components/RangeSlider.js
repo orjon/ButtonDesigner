@@ -5,8 +5,13 @@ import {
   setHeight,
   setWidth,
   setBorderRadius,
+  setBorderRadiusTopLeft,
+  setBorderRadiusTopRight,
+  setBorderRadiusBottomRight,
+  setBorderRadiusBottomLeft,
   setTextSize,
 } from '../actions/buttonValues';
+import '../styles/Adjustments.scss';
 
 const RangeSlider = ({
   field,
@@ -17,6 +22,10 @@ const RangeSlider = ({
   setHeight,
   setWidth,
   setBorderRadius,
+  setBorderRadiusTopLeft,
+  setBorderRadiusTopRight,
+  setBorderRadiusBottomRight,
+  setBorderRadiusBottomLeft,
   setTextSize,
 }) => {
   const [sliderValue, setSliderValue] = useState(initial);
@@ -31,6 +40,10 @@ const RangeSlider = ({
       case 'height':
       case 'width':
       case 'borderRadius':
+      case 'borderRadiusTopLeft':
+      case 'borderRadiusTopRight':
+      case 'borderRadiusBottomRight':
+      case 'borderRadiusBottomLeft':
         sliderUnit = 'px';
         break;
       case 'textSize':
@@ -57,6 +70,18 @@ const RangeSlider = ({
       case 'borderRadius':
         setBorderRadius(e.target.value + sliderUnit);
         break;
+      case 'borderRadiusTopLeft':
+        setBorderRadiusTopLeft(e.target.value + sliderUnit);
+        break;
+      case 'borderRadiusTopRight':
+        setBorderRadiusTopRight(e.target.value + sliderUnit);
+        break;
+      case 'borderRadiusBottomRight':
+        setBorderRadiusBottomRight(e.target.value + sliderUnit);
+        break;
+      case 'borderRadiusBottomLeft':
+        setBorderRadiusBottomLeft(e.target.value + sliderUnit);
+        break;
       case 'textSize':
         setTextSize(e.target.value + 'pt');
         break;
@@ -67,8 +92,8 @@ const RangeSlider = ({
 
   return (
     <Fragment>
-      <div className='sliderContainer'>
-        <div className='sliderLabel'>
+      <div className='adjustmentContainer'>
+        <div className='adjustmentLabel'>
           <div className='sliderField'>
             {' '}
             {capitalize(field)}:{' '}
@@ -80,7 +105,7 @@ const RangeSlider = ({
           {percentageOption && (
             <div className='percentageOption'>
               <form>
-                <label for='percentage'>
+                <label htmlFor='percentage'>
                   <strong>%</strong>&nbsp;
                 </label>
                 <input
@@ -127,5 +152,9 @@ export default connect(mapStateToProps, {
   setHeight,
   setWidth,
   setBorderRadius,
+  setBorderRadiusTopLeft,
+  setBorderRadiusTopRight,
+  setBorderRadiusBottomRight,
+  setBorderRadiusBottomLeft,
   setTextSize,
 })(RangeSlider);

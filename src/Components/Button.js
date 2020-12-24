@@ -1,8 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../styles/Button.scss';
 
 const Button = ({ buttonValues }) => {
-  const { height, width, borderRadius, textSize } = buttonValues;
+  const {
+    height,
+    width,
+    borderRadiusTopLeft,
+    borderRadiusTopRight,
+    borderRadiusBottomLeft,
+    borderRadiusBottomRight,
+    textSize,
+  } = buttonValues;
   return (
     <div className='buttonContainer'>
       <button
@@ -11,7 +20,10 @@ const Button = ({ buttonValues }) => {
           backgroundColor: 'red',
           height: height,
           width: width,
-          borderRadius: borderRadius,
+          borderTopLeftRadius: borderRadiusTopLeft,
+          borderTopRightRadius: borderRadiusTopRight,
+          borderBottomLeftRadius: borderRadiusBottomLeft,
+          borderBottomRightRadius: borderRadiusBottomRight,
           fontSize: textSize,
         }}
       >

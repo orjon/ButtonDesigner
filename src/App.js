@@ -1,6 +1,6 @@
 import React from 'react';
 import Adjustments from './Components/Adjustments';
-import Button from './Components/Button';
+import ButtonPreview from './Components/ButtonPreview';
 import './styles/App.scss';
 
 // Redux
@@ -12,7 +12,7 @@ const App = (buttonValues) => {
   return (
     <Provider store={store}>
       <div className='App'>
-        <body className='flexColumnCenter'>
+        <div className='flexColumnCenter'>
           <div className='buttonMaker'>
             <header>
               <h1>Button Maker</h1>
@@ -20,13 +20,10 @@ const App = (buttonValues) => {
 
             <main>
               <Adjustments />
-              <div className='buttonPreview'>
-                <h3>Preview</h3>
-                <Button />
-              </div>
+              <ButtonPreview />
             </main>
           </div>
-        </body>
+        </div>
       </div>
     </Provider>
   );

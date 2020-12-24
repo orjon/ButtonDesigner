@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import RangeSlider from './RangeSlider';
+import '../styles/Adjustments.scss';
 
 const Adjustments = () => {
+  const [lockCorners, setLockCorners] = useState(true);
+  const handleLockCorners = (e) => {
+    setLockCorners(e.target.checked);
+  };
+
   return (
     <div className='adjustments'>
       <h3>Adjustments</h3>
@@ -25,26 +31,59 @@ const Adjustments = () => {
       </section>
       <section className='adjustSection adjustSize'>
         <h4>Corner Radii</h4>
-        {/* <form>
-          <label for='percentage'>
-            <strong>%</strong>&nbsp;
-          </label>
-          <input
-            style={{ verticalAlign: 'bottom' }}
-            type='checkbox'
-            id='percentage'
-            name='usePercentage'
-            // checked={usePercentage}
-            // onChange={handleCheckboxChange}
+        <form className='adjustmentContainer'>
+          <div className='checkbox'>
+            <input
+              style={{ verticalAlign: 'bottom' }}
+              type='checkbox'
+              id='percentage'
+              name='usePercentage'
+              checked={lockCorners}
+              onChange={handleLockCorners}
+            />
+            <label htmlFor='percentage'>&nbsp;Lock corners</label>
+          </div>
+        </form>
+        {lockCorners ? (
+          <RangeSlider
+            field='borderRadius'
+            percentageOption={true}
+            initial={50}
+            min={0}
+            max={500}
           />
-        </form> */}
-        <RangeSlider
-          field='borderRadius'
-          percentageOption={true}
-          initial={50}
-          min={0}
-          max={500}
-        />
+        ) : (
+          <Fragment>
+            <RangeSlider
+              field='borderRadiusTopLeft'
+              percentageOption={true}
+              initial={50}
+              min={0}
+              max={500}
+            />
+            <RangeSlider
+              field='borderRadiusTopRight'
+              percentageOption={true}
+              initial={50}
+              min={0}
+              max={500}
+            />
+            <RangeSlider
+              field='borderRadiusBottomRight'
+              percentageOption={true}
+              initial={50}
+              min={0}
+              max={500}
+            />
+            <RangeSlider
+              field='borderRadiusBottomLeft'
+              percentageOption={true}
+              initial={50}
+              min={0}
+              max={500}
+            />
+          </Fragment>
+        )}
       </section>
       <section className='adjustSection adjustSize'>
         <h4>Text</h4>
