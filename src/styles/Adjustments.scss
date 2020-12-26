@@ -1,5 +1,6 @@
 @import 'Variables';
 @import 'FlexLayouts';
+@import 'Accordion';
 
 .adjustments {
   @include flexColumnTopLeft;
@@ -10,12 +11,16 @@
     @include flexColumnTopLeft;
     border: $devBorder solid orange;
     width: 100%;
-    // padding: $spacer1;
+
     .adjustmentContainer {
       @include flexColumnTopLeft;
       border: $devBorder solid lime;
       padding: $spacer1;
       width: 100%;
+
+      &:last-child {
+        margin-bottom: $spacer1;
+      }
 
       .adjustmentLabel {
         width: 100%;

@@ -20,24 +20,31 @@
 }
 
 body {
-  border: $devBorder solid red;
   height: 100vh;
   width: 100vw;
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.ButtonMaker {
   padding: $bodyPadding;
   @include flexColumnCenter;
-  .buttonMaker {
-    border: $devBorder solid orange;
-    max-width: 800px;
+  border: $devBorder solid orange;
+  width: 100%;
+  height: 100%;
+  header {
+    border: $devBorder solid blue;
     width: 100%;
-    header {
-      border: $devBorder solid blue;
-      width: 100%;
-      margin-bottom: $spacer1;
-      text-align: center;
-    }
-    main {
-      border: $devBorder solid yellow;
-      @include flexRowStart;
-    }
+    margin-bottom: $spacer1;
+    text-align: center;
+  }
+  main {
+    width: 100%;
+    flex: 1;
+    // height: 100%;
+    border: $devBorder solid yellow;
+    @include flexRowStart;
   }
 }
