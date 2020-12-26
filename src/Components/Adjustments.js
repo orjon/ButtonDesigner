@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
+import LinkIcon from '@material-ui/icons/Link';
 import RangeSlider from './RangeSlider';
 import '../styles/Adjustments.scss';
 
@@ -43,7 +44,10 @@ const Adjustments = () => {
                   checked={lockCorners}
                   onChange={handleLockCorners}
                 />
-                <label htmlFor='percentage'>&nbsp;Lock corners</label>
+                <label htmlFor='percentage'>
+                  <LinkIcon />
+                  &nbsp;Lock corners
+                </label>
               </div>
             </form>
             {lockCorners ? (
