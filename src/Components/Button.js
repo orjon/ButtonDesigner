@@ -10,6 +10,14 @@ const Button = ({ buttonValues }) => {
     borderRadiusTopRight,
     borderRadiusBottomLeft,
     borderRadiusBottomRight,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
     textSize,
   } = buttonValues;
   return (
@@ -24,6 +32,14 @@ const Button = ({ buttonValues }) => {
           borderTopRightRadius: borderRadiusTopRight,
           borderBottomLeftRadius: borderRadiusBottomLeft,
           borderBottomRightRadius: borderRadiusBottomRight,
+          marginTop: marginTop,
+          marginRight: marginRight,
+          marginBottom: marginBottom,
+          marginLeft: marginLeft,
+          paddingTop: paddingTop,
+          paddingRight: paddingRight,
+          paddingBottom: paddingBottom,
+          paddingLeft: paddingLeft,
           fontSize: textSize,
         }}
       >

@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { capitalize } from '../helpers';
 import {
   setHeight,
   setWidth,
@@ -9,12 +8,23 @@ import {
   setBorderRadiusTopRight,
   setBorderRadiusBottomRight,
   setBorderRadiusBottomLeft,
+  setMargin,
+  setMarginTop,
+  setMarginRight,
+  setMarginBottom,
+  setMarginLeft,
+  setPadding,
+  setPaddingTop,
+  setPaddingRight,
+  setPaddingBottom,
+  setPaddingLeft,
   setTextSize,
 } from '../actions/buttonValues';
 import '../styles/Adjustments.scss';
 
 const RangeSlider = ({
   field,
+  label,
   initial,
   min,
   max,
@@ -26,32 +36,29 @@ const RangeSlider = ({
   setBorderRadiusTopRight,
   setBorderRadiusBottomRight,
   setBorderRadiusBottomLeft,
+  setMargin,
+  setMarginTop,
+  setMarginRight,
+  setMarginBottom,
+  setMarginLeft,
+  setPadding,
+  setPaddingTop,
+  setPaddingRight,
+  setPaddingBottom,
+  setPaddingLeft,
   setTextSize,
 }) => {
   const [sliderValue, setSliderValue] = useState(initial);
   const [usePercentage, setUsePercentage] = useState(false);
 
-  let sliderUnit = 'px';
+  let unit = 'px';
 
   if (usePercentage) {
-    sliderUnit = '%';
+    unit = '%';
+  } else if (field === 'textSize') {
+    unit = 'pt';
   } else {
-    switch (field) {
-      case 'height':
-      case 'width':
-      case 'borderRadius':
-      case 'borderRadiusTopLeft':
-      case 'borderRadiusTopRight':
-      case 'borderRadiusBottomRight':
-      case 'borderRadiusBottomLeft':
-        sliderUnit = 'px';
-        break;
-      case 'textSize':
-        sliderUnit = 'pt';
-        break;
-      default:
-        return;
-    }
+    unit = 'px';
   }
 
   const handleCheckboxChange = (e) => {
@@ -62,25 +69,56 @@ const RangeSlider = ({
     setSliderValue(e.target.value);
     switch (field) {
       case 'height':
-        setHeight(e.target.value + sliderUnit);
+        setHeight(e.target.value + unit);
         break;
       case 'width':
-        setWidth(e.target.value + sliderUnit);
+        setWidth(e.target.value + unit);
         break;
       case 'borderRadius':
-        setBorderRadius(e.target.value + sliderUnit);
+        setBorderRadius(e.target.value + unit);
         break;
       case 'borderRadiusTopLeft':
-        setBorderRadiusTopLeft(e.target.value + sliderUnit);
+        setBorderRadiusTopLeft(e.target.value + unit);
         break;
       case 'borderRadiusTopRight':
-        setBorderRadiusTopRight(e.target.value + sliderUnit);
+        setBorderRadiusTopRight(e.target.value + unit);
         break;
       case 'borderRadiusBottomRight':
-        setBorderRadiusBottomRight(e.target.value + sliderUnit);
+        setBorderRadiusBottomRight(e.target.value + unit);
         break;
       case 'borderRadiusBottomLeft':
-        setBorderRadiusBottomLeft(e.target.value + sliderUnit);
+        setBorderRadiusBottomLeft(e.target.value + unit);
+        break;
+      case 'margin':
+        setMargin(e.target.value + unit);
+        break;
+      case 'marginTop':
+        setMarginTop(e.target.value + unit);
+        break;
+      case 'marginRight':
+        setMarginRight(e.target.value + unit);
+        break;
+      case 'marginBottom':
+        setMarginBottom(e.target.value + unit);
+        break;
+      case 'marginLeft':
+        setMarginLeft(e.target.value + unit);
+        break;
+
+      case 'padding':
+        setPadding(e.target.value + unit);
+        break;
+      case 'paddingTop':
+        setPaddingTop(e.target.value + unit);
+        break;
+      case 'paddingRight':
+        setPaddingRight(e.target.value + unit);
+        break;
+      case 'paddingBottom':
+        setPaddingBottom(e.target.value + unit);
+        break;
+      case 'paddingLeft':
+        setPaddingLeft(e.target.value + unit);
         break;
       case 'textSize':
         setTextSize(e.target.value + 'pt');
@@ -96,10 +134,10 @@ const RangeSlider = ({
         <div className='adjustmentLabel'>
           <div className='sliderField'>
             {' '}
-            {capitalize(field)}:{' '}
+            {label}:{' '}
             <span id='sliderValue'>
               {sliderValue}
-              {sliderUnit}
+              {unit}
             </span>
           </div>
           {percentageOption && (
@@ -156,5 +194,15 @@ export default connect(mapStateToProps, {
   setBorderRadiusTopRight,
   setBorderRadiusBottomRight,
   setBorderRadiusBottomLeft,
+  setMargin,
+  setMarginTop,
+  setMarginRight,
+  setMarginBottom,
+  setMarginLeft,
+  setPadding,
+  setPaddingTop,
+  setPaddingRight,
+  setPaddingBottom,
+  setPaddingLeft,
   setTextSize,
 })(RangeSlider);

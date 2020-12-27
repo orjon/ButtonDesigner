@@ -8,15 +8,10 @@
   padding: 0;
   margin: 0;
   font-family: 'Karla', sans-serif;
-}
-
-/* make text unhighlightable */
-*.unselectable {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 body {

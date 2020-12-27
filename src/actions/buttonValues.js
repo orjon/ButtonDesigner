@@ -6,62 +6,141 @@ import {
   SET_BORDERRADIUS_TOPRIGHT,
   SET_BORDERRADIUS_BOTTOMRIGHT,
   SET_BORDERRADIUS_BOTTOMLEFT,
+  SET_MARGIN,
+  SET_MARGIN_TOP,
+  SET_MARGIN_RIGHT,
+  SET_MARGIN_BOTTOM,
+  SET_MARGIN_LEFT,
+  SET_PADDING,
+  SET_PADDING_TOP,
+  SET_PADDING_RIGHT,
+  SET_PADDING_BOTTOM,
+  SET_PADDING_LEFT,
   SET_TEXTSIZE,
 } from './types';
 
-export const setHeight = (height) => async (dispatch) => {
+export const setHeight = (value) => async (dispatch) => {
   dispatch({
     type: SET_HEIGHT,
-    payload: height,
+    payload: value,
   });
 };
 
-export const setWidth = (width) => async (dispatch) => {
+export const setWidth = (value) => async (dispatch) => {
   dispatch({
     type: SET_WIDTH,
-    payload: width,
+    payload: value,
   });
 };
 
-export const setBorderRadius = (borderRadius) => async (dispatch) => {
+export const setBorderRadius = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERRADIUS,
-    payload: borderRadius,
+    payload: value,
   });
 };
 
-export const setBorderRadiusTopLeft = (borderRadius) => async (dispatch) => {
+export const setBorderRadiusTopLeft = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERRADIUS_TOPLEFT,
-    payload: borderRadius,
+    payload: value,
   });
 };
 
-export const setBorderRadiusTopRight = (borderRadius) => async (dispatch) => {
+export const setBorderRadiusTopRight = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERRADIUS_TOPRIGHT,
-    payload: borderRadius,
+    payload: value,
   });
 };
 
-export const setBorderRadiusBottomRight = (borderRadius) => async (
-  dispatch
-) => {
+export const setBorderRadiusBottomRight = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERRADIUS_BOTTOMRIGHT,
-    payload: borderRadius,
+    payload: value,
   });
 };
 
-export const setBorderRadiusBottomLeft = (borderRadius) => async (dispatch) => {
+export const setBorderRadiusBottomLeft = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERRADIUS_BOTTOMLEFT,
-    payload: borderRadius,
+    payload: value,
   });
 };
-export const setTextSize = (textSize) => async (dispatch) => {
+
+export const setMargin = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_MARGIN,
+    payload: value,
+  });
+};
+
+export const setMarginTop = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_MARGIN_TOP,
+    payload: value,
+  });
+};
+
+export const setMarginRight = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_MARGIN_RIGHT,
+    payload: value,
+  });
+};
+
+export const setMarginBottom = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_MARGIN_BOTTOM,
+    payload: value,
+  });
+};
+
+export const setMarginLeft = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_MARGIN_LEFT,
+    payload: value,
+  });
+};
+
+export const setPadding = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_PADDING,
+    payload: value,
+  });
+};
+
+export const setPaddingTop = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_PADDING_TOP,
+    payload: value,
+  });
+};
+
+export const setPaddingRight = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_PADDING_RIGHT,
+    payload: value,
+  });
+};
+
+export const setPaddingBottom = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_PADDING_BOTTOM,
+    payload: value,
+  });
+};
+
+export const setPaddingLeft = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_PADDING_LEFT,
+    payload: value,
+  });
+};
+
+export const setTextSize = (value) => async (dispatch) => {
   dispatch({
     type: SET_TEXTSIZE,
-    payload: textSize,
+    payload: value,
   });
 };
