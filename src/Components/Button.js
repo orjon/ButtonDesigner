@@ -19,6 +19,7 @@ const Button = ({ buttonValues }) => {
     paddingBottom,
     paddingLeft,
     textSize,
+    buttonText,
   } = buttonValues;
   return (
     <div className='buttonContainer'>
@@ -43,7 +44,7 @@ const Button = ({ buttonValues }) => {
           fontSize: textSize,
         }}
       >
-        Button text
+        {buttonText}
       </button>
     </div>
   );

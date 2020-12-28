@@ -6,11 +6,27 @@
   border: $devBorder solid blue;
   width: 100%;
   text-align: center;
-  .buttonContainer {
-    @include flexColumnCenter;
+  .codeContainer {
+    @include flexColumnTopLeft;
     border: $devBorder solid orange;
     width: 100%;
     height: 100%;
-    padding: $spacer1;
+
+    .scssCode {
+      padding: $spacer1;
+      text-align: left;
+      background-color: #333;
+      border: 1px solid #ddd;
+      color: magenta;
+      // page-break-inside: avoid;
+      font-family: monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      width: 100%;
+      overflow: auto;
+      // padding: 1em 1.5em;
+      display: block;
+      word-wrap: break-word;
+    }
   }
 }

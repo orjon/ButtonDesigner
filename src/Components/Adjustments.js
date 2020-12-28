@@ -1,16 +1,65 @@
 import React, { Fragment } from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
+import { connect } from 'react-redux';
 import useToggle from '../helpers/useToggle';
 import RangeSlider from './RangeSlider';
 import IconSwitch from './IconSwitch';
+import TextField from './TextField';
+import {
+  setHeight,
+  setWidth,
+  setBorderRadius,
+  setBorderRadiusTopLeft,
+  setBorderRadiusTopRight,
+  setBorderRadiusBottomRight,
+  setBorderRadiusBottomLeft,
+  setMargin,
+  setMarginTop,
+  setMarginRight,
+  setMarginBottom,
+  setMarginLeft,
+  setPadding,
+  setPaddingTop,
+  setPaddingRight,
+  setPaddingBottom,
+  setPaddingLeft,
+  setTextSize,
+  setText,
+} from '../actions/buttonValues';
 import '../styles/Adjustments.scss';
 
-const Adjustments = () => {
+const Adjustments = ({
+  buttonValues,
+  setHeight,
+  setWidth,
+  setBorderRadius,
+  setBorderRadiusTopLeft,
+  setBorderRadiusTopRight,
+  setBorderRadiusBottomRight,
+  setBorderRadiusBottomLeft,
+  setMargin,
+  setMarginTop,
+  setMarginRight,
+  setMarginBottom,
+  setMarginLeft,
+  setPadding,
+  setPaddingTop,
+  setPaddingRight,
+  setPaddingBottom,
+  setPaddingLeft,
+  setTextSize,
+  setText,
+}) => {
+  const { buttonText } = buttonValues;
   const [lockCorners, toggleLockCorners] = useToggle(true);
   // const [seeMargin, toggleSeeMargin] = useToggle(false);
   // const [seePadding, toggleSeePadding] = useToggle(false);
   const [lockMargins, toggleLockMargins] = useToggle(true);
   const [lockPadding, toggleLockPadding] = useToggle(true);
+
+  const handleButtonTextChange = (e) => {
+    setText(e.target.value);
+  };
 
   return (
     <div className='Adjustments'>
@@ -20,6 +69,7 @@ const Adjustments = () => {
           <section className='adjustSection adjustSize'>
             <RangeSlider
               field='height'
+              changeHandler={setHeight}
               label='Height'
               percentageOption={false}
               initial={30}
@@ -28,6 +78,7 @@ const Adjustments = () => {
             />
             <RangeSlider
               field='width'
+              changeHandler={setWidth}
               label='Width'
               percentageOption={false}
               initial={100}
@@ -48,6 +99,7 @@ const Adjustments = () => {
             {lockCorners ? (
               <RangeSlider
                 field='borderRadius'
+                changeHandler={setBorderRadius}
                 label='Corner radii'
                 percentageOption={true}
                 initial={50}
@@ -58,6 +110,7 @@ const Adjustments = () => {
               <Fragment>
                 <RangeSlider
                   field='borderRadiusTopLeft'
+                  changeHandler={setBorderRadiusTopLeft}
                   label='Top-left'
                   percentageOption={true}
                   initial={50}
@@ -66,6 +119,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='borderRadiusTopRight'
+                  changeHandler={setBorderRadiusTopRight}
                   label='Top-right'
                   percentageOption={true}
                   initial={50}
@@ -74,6 +128,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='borderRadiusBottomRight'
+                  changeHandler={setBorderRadiusBottomRight}
                   label='Bottom-right'
                   percentageOption={true}
                   initial={50}
@@ -82,6 +137,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='borderRadiusBottomLeft'
+                  changeHandler={setBorderRadiusBottomLeft}
                   label='Bottom-left'
                   percentageOption={true}
                   initial={50}
@@ -94,8 +150,16 @@ const Adjustments = () => {
         </AccordionItem>
         <AccordionItem title='Text'>
           <section className='adjustSection adjustSize'>
+            <TextField
+              fieldName='buttonText'
+              fieldText='Text'
+              value={buttonText}
+              placeHolder='Button Text'
+              handleTextFieldChange={handleButtonTextChange}
+            />
             <RangeSlider
               field='textSize'
+              changeHandler={setTextSize}
               label='Text size'
               initial={30}
               min={1}
@@ -122,6 +186,7 @@ const Adjustments = () => {
             {lockMargins ? (
               <RangeSlider
                 field='margin'
+                changeHandler={setMargin}
                 label='Margins'
                 initial={50}
                 min={0}
@@ -131,6 +196,7 @@ const Adjustments = () => {
               <Fragment>
                 <RangeSlider
                   field='marginTop'
+                  changeHandler={setMarginTop}
                   label='Top'
                   initial={0}
                   min={0}
@@ -138,6 +204,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='marginRight'
+                  changeHandler={setMarginRight}
                   label='Right'
                   initial={0}
                   min={0}
@@ -145,6 +212,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='marginBottom'
+                  changeHandler={setMarginBottom}
                   label='Bottom'
                   initial={0}
                   min={0}
@@ -152,6 +220,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='marginLeft'
+                  changeHandler={setMarginLeft}
                   label='Left'
                   initial={0}
                   min={0}
@@ -180,6 +249,7 @@ const Adjustments = () => {
             {lockPadding ? (
               <RangeSlider
                 field='padding'
+                changeHandler={setPadding}
                 label='Padding'
                 initial={50}
                 min={0}
@@ -189,6 +259,7 @@ const Adjustments = () => {
               <Fragment>
                 <RangeSlider
                   field='paddingTop'
+                  changeHandler={setPaddingTop}
                   label='Top'
                   initial={0}
                   min={0}
@@ -196,6 +267,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='paddingRight'
+                  changeHandler={setPaddingRight}
                   label='Right'
                   initial={0}
                   min={0}
@@ -203,6 +275,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='paddingBottom'
+                  changeHandler={setPaddingBottom}
                   label='Bottom'
                   initial={0}
                   min={0}
@@ -210,6 +283,7 @@ const Adjustments = () => {
                 />
                 <RangeSlider
                   field='paddingLeft'
+                  changeHandler={setPaddingLeft}
                   label='Left'
                   initial={0}
                   min={0}
@@ -224,4 +298,28 @@ const Adjustments = () => {
   );
 };
 
-export default Adjustments;
+const mapStateToProps = (state) => ({
+  buttonValues: state.buttonValues,
+});
+
+export default connect(mapStateToProps, {
+  setHeight,
+  setWidth,
+  setBorderRadius,
+  setBorderRadiusTopLeft,
+  setBorderRadiusTopRight,
+  setBorderRadiusBottomRight,
+  setBorderRadiusBottomLeft,
+  setMargin,
+  setMarginTop,
+  setMarginRight,
+  setMarginBottom,
+  setMarginLeft,
+  setPadding,
+  setPaddingTop,
+  setPaddingRight,
+  setPaddingBottom,
+  setPaddingLeft,
+  setTextSize,
+  setText,
+})(Adjustments);

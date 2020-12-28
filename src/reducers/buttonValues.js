@@ -17,6 +17,7 @@ import {
   SET_PADDING_BOTTOM,
   SET_PADDING_LEFT,
   SET_TEXTSIZE,
+  SET_TEXT,
 } from '../actions/types';
 
 const initialState = {
@@ -35,6 +36,7 @@ const initialState = {
   paddingBottom: '0px',
   paddingLeft: '0px',
   textSize: '12pt',
+  buttonText: 'Button Text',
 };
 
 const buttonValues = (state = initialState, actions) => {
@@ -151,6 +153,12 @@ const buttonValues = (state = initialState, actions) => {
       return {
         ...state,
         textSize: payload,
+      };
+
+    case SET_TEXT:
+      return {
+        ...state,
+        buttonText: payload,
       };
 
     default:
