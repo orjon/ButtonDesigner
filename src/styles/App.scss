@@ -14,21 +14,18 @@
   user-select: none; /* Standard */
 }
 
-body {
-  height: 100vh;
-  width: 100vw;
-  #root {
-    height: 100%;
-    width: 100%;
-  }
+::-webkit-scrollbar {
+  display: none;
 }
 
 .ButtonMaker {
   padding: $bodyPadding;
-  @include flexColumnCenter;
+  @include flexColumnTopCenter;
   border: $devBorder solid orange;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
   header {
     border: $devBorder solid blue;
     width: 100%;
@@ -36,10 +33,15 @@ body {
     text-align: center;
   }
   main {
-    width: 100%;
     flex: 1;
-    // height: 100%;
     border: $devBorder solid yellow;
     @include flexRowStart;
+    overflow: hidden;
+    width: 100%;
+  }
+  footer {
+    margin-top: $spacer1;
+    border: $devBorder solid blue;
+    width: 100%;
   }
 }

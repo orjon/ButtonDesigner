@@ -13,7 +13,7 @@ const Adjustments = () => {
   const [lockPadding, toggleLockPadding] = useToggle(true);
 
   return (
-    <div className='adjustments'>
+    <div className='Adjustments'>
       <h3>Adjustments</h3>
       <Accordion atomic={false}>
         <AccordionItem title='Button Size'>

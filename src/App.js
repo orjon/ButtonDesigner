@@ -1,6 +1,7 @@
 import React from 'react';
 import Adjustments from './Components/Adjustments';
 import ButtonPreview from './Components/ButtonPreview';
+import CodeBlock from './Components/CodeBlock';
 import './styles/App.scss';
 
 // Redux
@@ -20,6 +21,9 @@ const App = (buttonValues) => {
           <Adjustments />
           <ButtonPreview />
         </main>
+        <footer>
+          <CodeBlock />
+        </footer>
       </div>
     </Provider>
   );

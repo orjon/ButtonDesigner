@@ -2,10 +2,11 @@
 @import 'FlexLayouts';
 @import 'Accordion';
 
-.adjustments {
+.Adjustments {
   @include flexColumnTopLeft;
   border: $devBorder solid blue;
   width: 350px;
+  height: 100%;
   text-align: center;
   .adjustSection {
     @include flexColumnTopLeft;

@@ -1,8 +1,7 @@
 @import 'Variables';
 @import 'FlexLayouts';
-@import 'button';
 
-.ButtonPreview {
+.CodeBlock {
   @include flexColumnTopLeft;
   border: $devBorder solid blue;
   width: 100%;

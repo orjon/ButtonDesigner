@@ -4,7 +4,7 @@ import '../styles/ButtonPreview.scss';
 
 const ButtonPreview = () => {
   return (
-    <div className='buttonPreview'>
+    <div className='ButtonPreview'>
       <h3>Preview</h3>
       <Button />
     </div>
