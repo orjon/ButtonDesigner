@@ -13,10 +13,11 @@
     height: 100%;
 
     .scssCode {
+      white-space: pre-wrap;
       padding: $spacer1;
       text-align: left;
       background-color: #333;
-      border: 1px solid #ddd;
+      // border: 1px solid $light0;
       color: magenta;
       // page-break-inside: avoid;
       font-family: monospace;
@@ -27,6 +28,11 @@
       // padding: 1em 1.5em;
       display: block;
       word-wrap: break-word;
+
+      -webkit-user-select: all; /* Chrome 49+ */
+      -moz-user-select: all; /* Firefox 43+ */
+      -ms-user-select: all; /* No support yet */
+      user-select: all; /* Likely future */
     }
   }
 }

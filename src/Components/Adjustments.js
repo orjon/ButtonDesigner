@@ -23,13 +23,13 @@ import {
   setPaddingRight,
   setPaddingBottom,
   setPaddingLeft,
-  setTextSize,
-  setText,
-} from '../actions/buttonValues';
+  setFontSize,
+} from '../actions/buttonStyle';
+import { setText } from '../actions/buttonText';
 import '../styles/Adjustments.scss';
 
 const Adjustments = ({
-  buttonValues,
+  buttonText,
   setHeight,
   setWidth,
   setBorderRadius,
@@ -47,10 +47,10 @@ const Adjustments = ({
   setPaddingRight,
   setPaddingBottom,
   setPaddingLeft,
-  setTextSize,
+  setFontSize,
   setText,
 }) => {
-  const { buttonText } = buttonValues;
+  const { text } = buttonText;
   const [lockCorners, toggleLockCorners] = useToggle(true);
   // const [seeMargin, toggleSeeMargin] = useToggle(false);
   // const [seePadding, toggleSeePadding] = useToggle(false);
@@ -63,7 +63,7 @@ const Adjustments = ({
 
   return (
     <div className='Adjustments'>
-      <h3>Adjustments</h3>
+      <div className='windowTitle'>Adjustments</div>
       <Accordion atomic={false}>
         <AccordionItem title='Button Size'>
           <section className='adjustSection adjustSize'>
@@ -153,13 +153,13 @@ const Adjustments = ({
             <TextField
               fieldName='buttonText'
               fieldText='Text'
-              value={buttonText}
+              value={text}
               placeHolder='Button Text'
               handleTextFieldChange={handleButtonTextChange}
             />
             <RangeSlider
               field='textSize'
-              changeHandler={setTextSize}
+              changeHandler={setFontSize}
               label='Text size'
               initial={30}
               min={1}
@@ -299,7 +299,8 @@ const Adjustments = ({
 };
 
 const mapStateToProps = (state) => ({
-  buttonValues: state.buttonValues,
+  buttonStyle: state.buttonStyle,
+  buttonText: state.buttonText,
 });
 
 export default connect(mapStateToProps, {
@@ -320,6 +321,6 @@ export default connect(mapStateToProps, {
   setPaddingRight,
   setPaddingBottom,
   setPaddingLeft,
-  setTextSize,
+  setFontSize,
   setText,
 })(Adjustments);

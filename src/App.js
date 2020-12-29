@@ -8,13 +8,12 @@ import './styles/App.scss';
 import { Provider } from 'react-redux';
 import store from './store';
 
-const App = (buttonValues) => {
-  console.log(store);
+const App = () => {
   return (
     <Provider store={store}>
       <div className='ButtonMaker'>
         <header>
-          <h1>Button Maker</h1>
+          <div id='AppTitle'>Button Styler</div>
         </header>
 
         <main>

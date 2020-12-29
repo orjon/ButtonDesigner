@@ -19,5 +19,5 @@ export const SET_PADDING_RIGHT = 'SET_PADDING_RIGHT';
 export const SET_PADDING_BOTTOM = 'SET_PADDING_BOTTOM';
 export const SET_PADDING_LEFT = 'SET_PADDING_LEFT';
 
-export const SET_TEXTSIZE = 'SET_TEXTSIZE';
+export const SET_FONTSIZE = 'SET_FONTSIZE';
 export const SET_TEXT = 'SET_TEXT';

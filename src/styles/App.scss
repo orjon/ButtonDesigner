@@ -1,9 +1,10 @@
 @import 'Variables';
+@import 'Text';
 @import 'FlexLayouts';
 
 * {
   box-sizing: border-box;
-  background-color: #222;
+  background-color: $dark0;
   color: #ccc;
   padding: 0;
   margin: 0;
@@ -29,7 +30,7 @@
   header {
     border: $devBorder solid blue;
     width: 100%;
-    margin-bottom: $spacer1;
+    margin-bottom: $spacer0;
     text-align: center;
   }
   main {

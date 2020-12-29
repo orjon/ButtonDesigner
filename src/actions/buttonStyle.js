@@ -16,8 +16,7 @@ import {
   SET_PADDING_RIGHT,
   SET_PADDING_BOTTOM,
   SET_PADDING_LEFT,
-  SET_TEXTSIZE,
-  SET_TEXT,
+  SET_FONTSIZE,
 } from './types';
 
 export const setHeight = (value) => async (dispatch) => {
@@ -139,16 +138,9 @@ export const setPaddingLeft = (value) => async (dispatch) => {
   });
 };
 
-export const setTextSize = (value) => async (dispatch) => {
+export const setFontSize = (value) => async (dispatch) => {
   dispatch({
-    type: SET_TEXTSIZE,
-    payload: value,
-  });
-};
-
-export const setText = (value) => async (dispatch) => {
-  dispatch({
-    type: SET_TEXT,
+    type: SET_FONTSIZE,
     payload: value,
   });
 };

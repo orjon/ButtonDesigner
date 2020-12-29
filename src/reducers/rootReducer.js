@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import buttonValues from './buttonValues';
+import buttonStyle from './buttonStyle';
+import buttonText from './buttonText';
 
 export default combineReducers({
-  buttonValues,
+  buttonStyle,
+  buttonText,
 });

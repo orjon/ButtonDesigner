@@ -16,17 +16,16 @@ import {
   SET_PADDING_RIGHT,
   SET_PADDING_BOTTOM,
   SET_PADDING_LEFT,
-  SET_TEXTSIZE,
-  SET_TEXT,
+  SET_FONTSIZE,
 } from '../actions/types';
 
 const initialState = {
   height: '30px',
   width: '200px',
-  borderRadiusTopLeft: '10px',
-  borderRadiusTopRight: '10px',
-  borderRadiusBottomRight: '10px',
-  borderRadiusBottomLeft: '10px',
+  borderTopLeftRadius: '10px',
+  borderTopRightRadius: '10px',
+  borderBottomLeftRadius: '10px',
+  borderBottomRightRadius: '10px',
   marginTop: '0px',
   marginRight: '0px',
   marginBottom: '0px',
@@ -35,11 +34,12 @@ const initialState = {
   paddingRight: '0px',
   paddingBottom: '0px',
   paddingLeft: '0px',
-  textSize: '12pt',
-  buttonText: 'Button Text',
+  fontSize: '12pt',
+  buttonColor: 'red',
+  borderColor: 'white',
 };
 
-const buttonValues = (state = initialState, actions) => {
+const buttonStyle = (state = initialState, actions) => {
   const { type, payload } = actions;
 
   switch (type) {
@@ -56,10 +56,10 @@ const buttonValues = (state = initialState, actions) => {
     case SET_BORDERRADIUS:
       return {
         ...state,
-        borderRadiusTopLeft: payload,
-        borderRadiusTopRight: payload,
-        borderRadiusBottomRight: payload,
-        borderRadiusBottomLeft: payload,
+        borderTopLeftRadius: payload,
+        borderTopRightRadius: payload,
+        borderBottomRightRadius: payload,
+        borderBottomLeftRadius: payload,
       };
 
     case SET_MARGIN:
@@ -131,34 +131,28 @@ const buttonValues = (state = initialState, actions) => {
     case SET_BORDERRADIUS_TOPLEFT:
       return {
         ...state,
-        borderRadiusTopLeft: payload,
+        borderTopLeftRadius: payload,
       };
     case SET_BORDERRADIUS_TOPRIGHT:
       return {
         ...state,
-        borderRadiusTopRight: payload,
+        borderTopRightRadius: payload,
       };
     case SET_BORDERRADIUS_BOTTOMRIGHT:
       return {
         ...state,
-        borderRadiusBottomRight: payload,
+        borderBottomRightRadius: payload,
       };
     case SET_BORDERRADIUS_BOTTOMLEFT:
       return {
         ...state,
-        borderRadiusBottomLeft: payload,
+        borderBottomLeftRadius: payload,
       };
 
-    case SET_TEXTSIZE:
+    case SET_FONTSIZE:
       return {
         ...state,
-        textSize: payload,
-      };
-
-    case SET_TEXT:
-      return {
-        ...state,
-        buttonText: payload,
+        fontSize: payload,
       };
 
     default:
@@ -166,4 +160,4 @@ const buttonValues = (state = initialState, actions) => {
   }
 };
 
-export default buttonValues;
+export default buttonStyle;

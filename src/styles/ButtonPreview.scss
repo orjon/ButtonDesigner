@@ -1,6 +1,6 @@
 @import 'Variables';
+@import 'Text';
 @import 'FlexLayouts';
-@import 'button';
 
 .ButtonPreview {
   @include flexColumnTopLeft;
@@ -10,6 +10,7 @@
   .buttonContainer {
     @include flexColumnCenter;
     border: $devBorder solid orange;
+    // border: 1px solid $light0;
     width: 100%;
     height: 100%;
     padding: $spacer1;
