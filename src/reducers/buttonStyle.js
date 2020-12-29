@@ -1,6 +1,8 @@
 import {
   SET_HEIGHT,
   SET_WIDTH,
+  SET_BACKGROUNDCOLOR,
+  SET_COLOR,
   SET_BORDERRADIUS,
   SET_BORDERRADIUS_TOPLEFT,
   SET_BORDERRADIUS_TOPRIGHT,
@@ -22,6 +24,8 @@ import {
 const initialState = {
   height: '30px',
   width: '200px',
+  backgroundColor: 'green',
+  color: 'lime',
   borderTopLeftRadius: '10px',
   borderTopRightRadius: '10px',
   borderBottomLeftRadius: '10px',
@@ -35,7 +39,6 @@ const initialState = {
   paddingBottom: '0px',
   paddingLeft: '0px',
   fontSize: '12pt',
-  buttonColor: 'red',
   borderColor: 'white',
 };
 
@@ -53,6 +56,19 @@ const buttonStyle = (state = initialState, actions) => {
         ...state,
         width: payload,
       };
+
+    case SET_BACKGROUNDCOLOR:
+      return {
+        ...state,
+        backgroundColor: payload,
+      };
+
+    case SET_COLOR:
+      return {
+        ...state,
+        color: payload,
+      };
+
     case SET_BORDERRADIUS:
       return {
         ...state,

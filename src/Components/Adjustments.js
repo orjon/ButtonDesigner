@@ -2,12 +2,14 @@ import React, { Fragment } from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import { connect } from 'react-redux';
 import useToggle from '../helpers/useToggle';
+import { ChromePicker } from 'react-color';
 import RangeSlider from './RangeSlider';
 import IconSwitch from './IconSwitch';
 import TextField from './TextField';
 import {
   setHeight,
   setWidth,
+  setBackgroundColor,
   setBorderRadius,
   setBorderRadiusTopLeft,
   setBorderRadiusTopRight,
@@ -29,9 +31,11 @@ import { setText } from '../actions/buttonText';
 import '../styles/Adjustments.scss';
 
 const Adjustments = ({
+  buttonStyle,
   buttonText,
   setHeight,
   setWidth,
+  setBackgroundColor,
   setBorderRadius,
   setBorderRadiusTopLeft,
   setBorderRadiusTopRight,
@@ -50,7 +54,9 @@ const Adjustments = ({
   setFontSize,
   setText,
 }) => {
+  const { backgroundColor } = buttonStyle;
   const { text } = buttonText;
+
   const [lockCorners, toggleLockCorners] = useToggle(true);
   // const [seeMargin, toggleSeeMargin] = useToggle(false);
   // const [seePadding, toggleSeePadding] = useToggle(false);
@@ -61,11 +67,34 @@ const Adjustments = ({
     setText(e.target.value);
   };
 
+  const handleBackgroundColorChange = (color) => {
+    setBackgroundColor(color.hex);
+  };
+
+  // class Component extends React.Component {
+  //   state = {
+  //     background: '#fff',
+  //   };
+
+  //   handleChangeComplete = (color) => {
+  //     this.setState({ background: color.hex });
+  //   };
+
+  //   render() {
+  //     return (
+  //       <SketchPicker
+  //         color={this.state.background}
+  //         onChangeComplete={this.handleChangeComplete}
+  //       />
+  //     );
+  //   }
+  // }
+
   return (
     <div className='Adjustments'>
       <div className='windowTitle'>Adjustments</div>
       <Accordion atomic={false}>
-        <AccordionItem title='Button Size'>
+        <AccordionItem title='Size'>
           <section className='adjustSection adjustSize'>
             <RangeSlider
               field='height'
@@ -87,7 +116,15 @@ const Adjustments = ({
             />
           </section>
         </AccordionItem>
-        <AccordionItem title='Corner Radii'>
+        <AccordionItem title='Color'>
+          <section className='adjustSection adjustSize'>
+            <ChromePicker
+              color={backgroundColor}
+              onChangeComplete={handleBackgroundColorChange}
+            />
+          </section>
+        </AccordionItem>
+        <AccordionItem title='Corners'>
           <section className='adjustSection adjustSize'>
             <IconSwitch
               icon='link'
@@ -306,6 +343,7 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   setHeight,
   setWidth,
+  setBackgroundColor,
   setBorderRadius,
   setBorderRadiusTopLeft,
   setBorderRadiusTopRight,

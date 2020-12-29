@@ -1,6 +1,8 @@
 import {
   SET_HEIGHT,
   SET_WIDTH,
+  SET_BACKGROUNDCOLOR,
+  SET_COLOR,
   SET_BORDERRADIUS,
   SET_BORDERRADIUS_TOPLEFT,
   SET_BORDERRADIUS_TOPRIGHT,
@@ -29,6 +31,20 @@ export const setHeight = (value) => async (dispatch) => {
 export const setWidth = (value) => async (dispatch) => {
   dispatch({
     type: SET_WIDTH,
+    payload: value,
+  });
+};
+
+export const setBackgroundColor = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BACKGROUNDCOLOR,
+    payload: value,
+  });
+};
+
+export const setColor = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_COLOR,
     payload: value,
   });
 };
