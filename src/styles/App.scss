@@ -4,7 +4,7 @@
 
 * {
   box-sizing: border-box;
-  background-color: $dark0;
+
   color: #ccc;
   padding: 0;
   margin: 0;
@@ -20,6 +20,7 @@
 }
 
 .ButtonMaker {
+  background-color: $dark0;
   padding: $bodyPadding;
   @include flexColumnTopCenter;
   border: $devBorder solid orange;

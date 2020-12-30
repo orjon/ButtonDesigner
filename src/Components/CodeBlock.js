@@ -6,6 +6,7 @@ const CodeBlock = ({ buttonStyle }) => {
   const {
     height,
     width,
+    backgroundColor,
     borderTopLeftRadius,
     borderTopRightRadius,
     borderBottomLeftRadius,
@@ -34,6 +35,7 @@ const CodeBlock = ({ buttonStyle }) => {
           text={`button {
   height: ${height};
   width: ${width};
+  background-color: ${backgroundColor};
   border-radius: ${borderTopLeftRadius} ${borderTopRightRadius} ${borderBottomLeftRadius} ${borderBottomRightRadius};
   margin: ${marginTop} ${marginRight} ${marginBottom} ${marginLeft};
   padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};

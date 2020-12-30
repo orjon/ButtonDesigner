@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import { connect } from 'react-redux';
 import useToggle from '../helpers/useToggle';
-import { ChromePicker } from 'react-color';
+import ColorPicker from './ColorPicker';
 import RangeSlider from './RangeSlider';
 import IconSwitch from './IconSwitch';
 import TextField from './TextField';
@@ -71,25 +71,6 @@ const Adjustments = ({
     setBackgroundColor(color.hex);
   };
 
-  // class Component extends React.Component {
-  //   state = {
-  //     background: '#fff',
-  //   };
-
-  //   handleChangeComplete = (color) => {
-  //     this.setState({ background: color.hex });
-  //   };
-
-  //   render() {
-  //     return (
-  //       <SketchPicker
-  //         color={this.state.background}
-  //         onChangeComplete={this.handleChangeComplete}
-  //       />
-  //     );
-  //   }
-  // }
-
   return (
     <div className='Adjustments'>
       <div className='windowTitle'>Adjustments</div>
@@ -117,10 +98,10 @@ const Adjustments = ({
           </section>
         </AccordionItem>
         <AccordionItem title='Color'>
-          <section className='adjustSection adjustSize'>
-            <ChromePicker
-              color={backgroundColor}
-              onChangeComplete={handleBackgroundColorChange}
+          <section className='adjustSection adjustColor'>
+            <ColorPicker
+              colorField={backgroundColor}
+              handleColorChange={handleBackgroundColorChange}
             />
           </section>
         </AccordionItem>
