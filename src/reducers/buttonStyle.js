@@ -24,8 +24,8 @@ import {
 const initialState = {
   height: '30px',
   width: '200px',
-  backgroundColor: 'green',
-  color: 'lime',
+  backgroundColor: 'dodgerblue',
+  color: 'white',
   borderTopLeftRadius: '10px',
   borderTopRightRadius: '10px',
   borderBottomLeftRadius: '10px',

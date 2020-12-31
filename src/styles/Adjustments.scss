@@ -10,6 +10,17 @@
   text-align: center;
   .adjustColor {
     background-color: white;
+    .chrome-picker {
+      background-color: $dark0 !important;
+      border-radius: 0px !important;
+      box-shadow: 0px !important;
+      box-sizing: initial !important;
+      font-family: Menlo !important;
+    }
+    .chrome-picker > * {
+      border-radius: 0px !important;
+      box-shadow: 0px !important;
+    }
   }
 
   .adjustSection {

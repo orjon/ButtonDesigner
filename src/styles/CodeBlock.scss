@@ -1,6 +1,13 @@
 @import 'Variables';
 @import 'FlexLayouts';
 
+$ObjectName: #d7ba7d;
+$ObjectBracket: #c586c0;
+$ObjectKey: #9cdcfe;
+$ObjectPunctuation: #d4d4d4;
+$ObjectValueNumber: #b5cea8;
+$ObjectValueString: #ce9178;
+
 .CodeBlock {
   @include flexColumnTopLeft;
   border: $devBorder solid blue;
@@ -12,7 +19,23 @@
     width: 100%;
     height: 100%;
 
-    .scssCode {
+    .CSSCode * {
+      font-family: monospace;
+      font-size: 12px;
+      -webkit-user-select: all; /* Chrome 49+ */
+      -moz-user-select: all; /* Firefox 43+ */
+      -ms-user-select: all; /* No support yet */
+      user-select: all; /* Likely future */
+    }
+
+    .CSSCode {
+      font-family: monospace;
+      font-size: 12px;
+      -webkit-user-select: all; /* Chrome 49+ */
+      -moz-user-select: all; /* Firefox 43+ */
+      -ms-user-select: all; /* No support yet */
+      user-select: all; /* Likely future */
+
       white-space: pre-wrap;
       padding: $spacer1;
       text-align: left;
@@ -20,19 +43,30 @@
       // border: 1px solid $light0;
       color: magenta;
       // page-break-inside: avoid;
-      font-family: monospace;
-      font-size: 15px;
-      line-height: 1.6;
       width: 100%;
       overflow: auto;
       // padding: 1em 1.5em;
       display: block;
       word-wrap: break-word;
 
-      -webkit-user-select: all; /* Chrome 49+ */
-      -moz-user-select: all; /* Firefox 43+ */
-      -ms-user-select: all; /* No support yet */
-      user-select: all; /* Likely future */
+      .name {
+        color: $ObjectName;
+      }
+      .bracket {
+        color: $ObjectBracket;
+      }
+      .key {
+        color: $ObjectKey;
+      }
+      .punct {
+        color: $ObjectPunctuation;
+      }
+      .valueNumber {
+        color: $ObjectValueNumber;
+      }
+      .alueString {
+        color: $ObjectValueString;
+      }
     }
   }
 }

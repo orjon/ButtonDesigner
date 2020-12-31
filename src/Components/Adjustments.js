@@ -10,6 +10,7 @@ import {
   setHeight,
   setWidth,
   setBackgroundColor,
+  setColor,
   setBorderRadius,
   setBorderRadiusTopLeft,
   setBorderRadiusTopRight,
@@ -36,6 +37,7 @@ const Adjustments = ({
   setHeight,
   setWidth,
   setBackgroundColor,
+  setColor,
   setBorderRadius,
   setBorderRadiusTopLeft,
   setBorderRadiusTopRight,
@@ -54,7 +56,7 @@ const Adjustments = ({
   setFontSize,
   setText,
 }) => {
-  const { backgroundColor } = buttonStyle;
+  const { height, width, backgroundColor, color } = buttonStyle;
   const { text } = buttonText;
 
   const [lockCorners, toggleLockCorners] = useToggle(true);
@@ -69,6 +71,10 @@ const Adjustments = ({
 
   const handleBackgroundColorChange = (color) => {
     setBackgroundColor(color.hex);
+  };
+
+  const handleColorChange = (color) => {
+    setColor(color.hex);
   };
 
   return (
@@ -122,7 +128,7 @@ const Adjustments = ({
                 percentageOption={true}
                 initial={50}
                 min={0}
-                max={500}
+                max={height / 2}
               />
             ) : (
               <Fragment>
@@ -167,7 +173,13 @@ const Adjustments = ({
           </section>
         </AccordionItem>
         <AccordionItem title='Text'>
-          <section className='adjustSection adjustSize'>
+          <section className='adjustSection adjustColor'>
+            <ColorPicker
+              colorField={color}
+              handleColorChange={handleColorChange}
+            />
+          </section>
+          <section className='adjustSection'>
             <TextField
               fieldName='buttonText'
               fieldText='Text'
@@ -325,6 +337,7 @@ export default connect(mapStateToProps, {
   setHeight,
   setWidth,
   setBackgroundColor,
+  setColor,
   setBorderRadius,
   setBorderRadiusTopLeft,
   setBorderRadiusTopRight,
