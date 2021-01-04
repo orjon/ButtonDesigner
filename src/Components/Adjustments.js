@@ -70,11 +70,11 @@ const Adjustments = ({
   };
 
   const handleBackgroundColorChange = (color) => {
-    setBackgroundColor(color.hex);
+    setBackgroundColor(color.rgb);
   };
 
   const handleColorChange = (color) => {
-    setColor(color.hex);
+    setColor(color.rgb);
   };
 
   return (
@@ -111,6 +111,32 @@ const Adjustments = ({
             />
           </section>
         </AccordionItem>
+        <AccordionItem title='Text'>
+          <section className='adjustSection'>
+            <TextField
+              fieldName='buttonText'
+              fieldText='Text'
+              value={text}
+              placeHolder='Button Text'
+              handleTextFieldChange={handleButtonTextChange}
+            />
+            <section className='adjustColor'>
+              <ColorPicker
+                colorField={color}
+                handleColorChange={handleColorChange}
+              />
+            </section>
+            <RangeSlider
+              field='textSize'
+              changeHandler={setFontSize}
+              label='Text size'
+              initial={30}
+              min={1}
+              max={50}
+            />
+          </section>
+        </AccordionItem>
+
         <AccordionItem title='Corners'>
           <section className='adjustSection adjustSize'>
             <IconSwitch
@@ -128,7 +154,7 @@ const Adjustments = ({
                 percentageOption={true}
                 initial={50}
                 min={0}
-                max={height / 2}
+                max={500}
               />
             ) : (
               <Fragment>
@@ -170,31 +196,6 @@ const Adjustments = ({
                 />
               </Fragment>
             )}
-          </section>
-        </AccordionItem>
-        <AccordionItem title='Text'>
-          <section className='adjustSection adjustColor'>
-            <ColorPicker
-              colorField={color}
-              handleColorChange={handleColorChange}
-            />
-          </section>
-          <section className='adjustSection'>
-            <TextField
-              fieldName='buttonText'
-              fieldText='Text'
-              value={text}
-              placeHolder='Button Text'
-              handleTextFieldChange={handleButtonTextChange}
-            />
-            <RangeSlider
-              field='textSize'
-              changeHandler={setFontSize}
-              label='Text size'
-              initial={30}
-              min={1}
-              max={50}
-            />
           </section>
         </AccordionItem>
         <AccordionItem title='Margin'>

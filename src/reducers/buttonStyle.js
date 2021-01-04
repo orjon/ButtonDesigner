@@ -24,8 +24,8 @@ import {
 const initialState = {
   height: '30px',
   width: '200px',
-  backgroundColor: 'dodgerblue',
-  color: 'white',
+  backgroundColor: 'rgba(31,143,255,1)',
+  color: 'rgba(255,255,255,1)',
   borderTopLeftRadius: '10px',
   borderTopRightRadius: '10px',
   borderBottomLeftRadius: '10px',
@@ -60,13 +60,13 @@ const buttonStyle = (state = initialState, actions) => {
     case SET_BACKGROUNDCOLOR:
       return {
         ...state,
-        backgroundColor: payload,
+        backgroundColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
 
     case SET_COLOR:
       return {
         ...state,
-        color: payload,
+        color: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
 
     case SET_BORDERRADIUS:

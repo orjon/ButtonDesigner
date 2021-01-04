@@ -23,45 +23,67 @@ const CodeBlock = ({ buttonStyle }) => {
     fontSize,
   } = buttonStyle;
 
-  const NewlineText = (props) => {
-    const { text, className } = props;
-    return <div className={`CSSCode ${className}`}>{text}</div>;
+  const ObjectCode = ({ type, value }) => {
+    //convert array of values to hold numbers only
+    const numberValues = value.map((value) =>
+      parseInt(value.replace(/\D/g, ''))
+    );
+
+    // If all numbers are 0 - return (thus don't display attribute)
+    if (!numberValues.some((value) => value !== 0)) return;
+
+    let values = <span className='valueNumber'> {value[0]}</span>;
+
+    if (!numberValues.every((val, i, arr) => val === arr[0])) {
+      values = value.map((value) => (
+        <span className='valueNumber'> {value}</span>
+      ));
+    }
+
+    return (
+      <div>
+        <span className='key'> {type}</span>
+        <span className='punct'>:</span>
+        {values}
+        <span className='punct'>;</span>
+      </div>
+    );
   };
 
   return (
     <div className='CodeBlock'>
       <div className='windowTitle'>CSS</div>
       <div className='codeContainer'>
-        {/* <div className='CSSCode'>
-          {ObjectCode({ type: 'name', value: 'button' })}
+        <div className='CSSCode'>
           <div>
             <span className='name'>button </span>
+            <span className='bracket'>&#123;</span>
           </div>
+          {ObjectCode({ type: 'height', value: [height] })}
+          {ObjectCode({ type: 'width', value: [width] })}
+          {/* {ObjectCode({ type: 'background-color', value: [backgroundColor] })} */}
+          {ObjectCode({
+            type: 'border-radius',
+            value: [
+              borderTopLeftRadius,
+              borderTopRightRadius,
+              borderBottomLeftRadius,
+              borderBottomRightRadius,
+            ],
+          })}
+          {ObjectCode({
+            type: 'margin',
+            value: [marginTop, marginRight, marginBottom, marginLeft],
+          })}
+          {ObjectCode({
+            type: 'padding',
+            value: [paddingTop, paddingRight, paddingBottom, paddingLeft],
+          })}
+          {ObjectCode({ type: 'font-size', value: [fontSize] })}
           <div>
-            <span className='key'> height</span>
-            <span className='punct'>: </span>
-            <span className='valueNumber'>{height}</span>
-            <span className='punct'>;</span>
+            <span className='bracket'>&#125;</span>
           </div>
-          <div>
-            <span className='key'> width</span>
-            <span className='punct'>: </span>
-            <span className='valueNumber'>{width}</span>
-            <span className='punct'>;</span>
-          </div>
-        </div> */}
-        <NewlineText
-          text={`button {
-  height: ${height};
-  width: ${width};
-  background-color: ${backgroundColor};
-  color: ${color};
-  border-radius: ${borderTopLeftRadius} ${borderTopRightRadius} ${borderBottomLeftRadius} ${borderBottomRightRadius};
-  margin: ${marginTop} ${marginRight} ${marginBottom} ${marginLeft};
-  padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};
-  font-size: ${fontSize};
-}`}
-        />
+        </div>
       </div>
     </div>
   );
