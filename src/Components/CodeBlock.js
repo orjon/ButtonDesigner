@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 import '../styles/CodeBlock.scss';
 
 const CodeBlock = ({ buttonStyle }) => {
@@ -8,6 +9,7 @@ const CodeBlock = ({ buttonStyle }) => {
     width,
     backgroundColor,
     color,
+    borderStyle,
     borderColor,
     borderTopWidth,
     borderRightWidth,
@@ -41,7 +43,10 @@ const CodeBlock = ({ buttonStyle }) => {
 
     if (!numberValues.every((val, i, arr) => val === arr[0])) {
       values = value.map((value) => (
-        <span className='valueNumber'> {value}</span>
+        <span key={uuid()} className='valueNumber'>
+          {' '}
+          {value}
+        </span>
       ));
     }
 
@@ -79,6 +84,10 @@ const CodeBlock = ({ buttonStyle }) => {
             ],
           })}
           {ObjectCode({ type: 'border-color', value: [borderColor] })}
+          {ObjectCode({
+            type: 'border-style',
+            value: [borderStyle],
+          })}
           {ObjectCode({
             type: 'border-width',
             value: [

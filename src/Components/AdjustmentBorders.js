@@ -2,10 +2,12 @@ import React, { Fragment } from 'react';
 import { AccordionItem } from 'react-light-accordion';
 import { connect } from 'react-redux';
 import useToggle from '../helpers/useToggle';
+import DropDown from './DropDown';
 import ColorPicker from './ColorPicker';
 import RangeSlider from './RangeSlider';
 import IconSwitch from './IconSwitch';
 import {
+  setBorderStyle,
   setBorderColor,
   setBorderWidth,
   setBorderWidthTop,
@@ -18,6 +20,7 @@ import '../styles/Adjustments.scss';
 
 const AdjustmentBorders = ({
   buttonStyle,
+  setBorderStyle,
   setBorderColor,
   setBorderWidth,
   setBorderWidthTop,
@@ -25,12 +28,16 @@ const AdjustmentBorders = ({
   setBorderWidthBottom,
   setBorderWidthLeft,
 }) => {
-  const { borderColor } = buttonStyle;
+  const { borderColor, borderStyle } = buttonStyle;
   const [lockBorders, toggleLockBorders] = useToggle(true);
 
   const handleBorderColorChange = (color) => {
     setBorderColor(color.rgb);
   };
+
+  // const handleDropDownChange = (color) => {
+  //   setBorderColor(color.rgb);
+  // };
 
   return (
     <AccordionItem title='Borders'>
@@ -43,14 +50,34 @@ const AdjustmentBorders = ({
           textFalse='Borders unlinked'
         />
         {lockBorders ? (
-          <RangeSlider
-            field='borderWidth'
-            changeHandler={setBorderWidth}
-            label='Thickness'
-            initial={1}
-            min={0}
-            max={25}
-          />
+          <Fragment>
+            <DropDown
+              fieldName='dropdown1'
+              fieldText='DropDown1'
+              value={borderStyle}
+              values={[
+                'none',
+                'hidden',
+                'dotted',
+                'dashed',
+                'solid',
+                'double',
+                'groove',
+                'ridge',
+                'inset',
+                'outset',
+              ]}
+              handleChange={setBorderStyle}
+            />
+            <RangeSlider
+              field='borderWidth'
+              changeHandler={setBorderWidth}
+              label='Thickness'
+              initial={1}
+              min={0}
+              max={25}
+            />
+          </Fragment>
         ) : (
           <Fragment>
             <RangeSlider
@@ -104,6 +131,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
+  setBorderStyle,
   setBorderColor,
   setBorderWidth,
   setBorderWidthTop,

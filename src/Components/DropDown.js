@@ -1,12 +1,6 @@
 import React from 'react';
 
-const DropDown = ({
-  fieldName,
-  fieldText,
-  value,
-  values,
-  handleDropDownChange,
-}) => {
+const DropDown = ({ fieldName, fieldText, value, values, handleChange }) => {
   let valueOptions = values.map((option) => {
     return (
       <option key={option} value={option}>
@@ -22,7 +16,7 @@ const DropDown = ({
         <select
           value={value}
           name={fieldName}
-          onChange={(e) => handleDropDownChange(e)}
+          onChange={(e) => handleChange(e.target.value)}
         >
           {valueOptions}
         </select>

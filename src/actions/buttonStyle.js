@@ -3,6 +3,7 @@ import {
   SET_WIDTH,
   SET_BACKGROUNDCOLOR,
   SET_COLOR,
+  SET_BORDERSTYLE,
   SET_BORDERCOLOR,
   SET_BORDERWIDTH,
   SET_BORDERWIDTH_TOP,
@@ -56,9 +57,11 @@ export const setColor = (value) => async (dispatch) => {
   });
 };
 
-export const setBorder = (value) => async (dispatch) => {
+export const setBorderStyle = (value) => async (dispatch) => {
+  console.log('Value:', value);
+
   dispatch({
-    type: SET_BORDER,
+    type: SET_BORDERSTYLE,
     payload: value,
   });
 };

@@ -5,7 +5,7 @@ import {
   SET_COLOR,
   SET_BORDERRADIUS,
   SET_BORDERCOLOR,
-  SET_BORDER,
+  SET_BORDERSTYLE,
   SET_BORDERWIDTH,
   SET_BORDERWIDTH_TOP,
   SET_BORDERWIDTH_RIGHT,
@@ -81,6 +81,12 @@ const buttonStyle = (state = initialState, actions) => {
         color: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
 
+    case SET_BORDERSTYLE:
+      return {
+        ...state,
+        borderStyle: payload,
+      };
+
     case SET_BORDERCOLOR:
       return {
         ...state,
@@ -115,12 +121,6 @@ const buttonStyle = (state = initialState, actions) => {
       return {
         ...state,
         borderLeftWidth: payload,
-      };
-
-    case SET_BORDER:
-      return {
-        ...state,
-        border: payload,
       };
 
     case SET_BORDERRADIUS:
