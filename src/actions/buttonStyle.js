@@ -3,6 +3,13 @@ import {
   SET_WIDTH,
   SET_BACKGROUNDCOLOR,
   SET_COLOR,
+  SET_BORDERCOLOR,
+  SET_BORDERWIDTH,
+  SET_BORDERWIDTH_TOP,
+  SET_BORDERWIDTH_RIGHT,
+  SET_BORDERWIDTH_BOTTOM,
+  SET_BORDERWIDTH_LEFT,
+  SET_BORDER,
   SET_BORDERRADIUS,
   SET_BORDERRADIUS_TOPLEFT,
   SET_BORDERRADIUS_TOPRIGHT,
@@ -45,6 +52,55 @@ export const setBackgroundColor = (value) => async (dispatch) => {
 export const setColor = (value) => async (dispatch) => {
   dispatch({
     type: SET_COLOR,
+    payload: value,
+  });
+};
+
+export const setBorder = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDER,
+    payload: value,
+  });
+};
+
+export const setBorderColor = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERCOLOR,
+    payload: value,
+  });
+};
+
+export const setBorderWidth = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERWIDTH,
+    payload: value,
+  });
+};
+
+export const setBorderWidthTop = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERWIDTH_TOP,
+    payload: value,
+  });
+};
+
+export const setBorderWidthRight = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERWIDTH_RIGHT,
+    payload: value,
+  });
+};
+
+export const setBorderWidthBottom = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERWIDTH_BOTTOM,
+    payload: value,
+  });
+};
+
+export const setBorderWidthLeft = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERWIDTH_LEFT,
     payload: value,
   });
 };

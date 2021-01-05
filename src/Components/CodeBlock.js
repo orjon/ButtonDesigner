@@ -8,6 +8,11 @@ const CodeBlock = ({ buttonStyle }) => {
     width,
     backgroundColor,
     color,
+    borderColor,
+    borderTopWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderLeftWidth,
     borderTopLeftRadius,
     borderTopRightRadius,
     borderBottomLeftRadius,
@@ -61,7 +66,9 @@ const CodeBlock = ({ buttonStyle }) => {
           </div>
           {ObjectCode({ type: 'height', value: [height] })}
           {ObjectCode({ type: 'width', value: [width] })}
-          {/* {ObjectCode({ type: 'background-color', value: [backgroundColor] })} */}
+          {ObjectCode({ type: 'background-color', value: [backgroundColor] })}
+          {ObjectCode({ type: 'color', value: [color] })}
+          {ObjectCode({ type: 'font-size', value: [fontSize] })}
           {ObjectCode({
             type: 'border-radius',
             value: [
@@ -69,6 +76,16 @@ const CodeBlock = ({ buttonStyle }) => {
               borderTopRightRadius,
               borderBottomLeftRadius,
               borderBottomRightRadius,
+            ],
+          })}
+          {ObjectCode({ type: 'border-color', value: [borderColor] })}
+          {ObjectCode({
+            type: 'border-width',
+            value: [
+              borderTopWidth,
+              borderRightWidth,
+              borderBottomWidth,
+              borderLeftWidth,
             ],
           })}
           {ObjectCode({
@@ -79,7 +96,7 @@ const CodeBlock = ({ buttonStyle }) => {
             type: 'padding',
             value: [paddingTop, paddingRight, paddingBottom, paddingLeft],
           })}
-          {ObjectCode({ type: 'font-size', value: [fontSize] })}
+
           <div>
             <span className='bracket'>&#125;</span>
           </div>

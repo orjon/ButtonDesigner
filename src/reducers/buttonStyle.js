@@ -4,6 +4,13 @@ import {
   SET_BACKGROUNDCOLOR,
   SET_COLOR,
   SET_BORDERRADIUS,
+  SET_BORDERCOLOR,
+  SET_BORDER,
+  SET_BORDERWIDTH,
+  SET_BORDERWIDTH_TOP,
+  SET_BORDERWIDTH_RIGHT,
+  SET_BORDERWIDTH_BOTTOM,
+  SET_BORDERWIDTH_LEFT,
   SET_BORDERRADIUS_TOPLEFT,
   SET_BORDERRADIUS_TOPRIGHT,
   SET_BORDERRADIUS_BOTTOMRIGHT,
@@ -26,6 +33,12 @@ const initialState = {
   width: '200px',
   backgroundColor: 'rgba(31,143,255,1)',
   color: 'rgba(255,255,255,1)',
+  borderColor: 'rgba(255,255,255,1)',
+  borderStyle: 'solid',
+  borderTopWidth: '1px',
+  borderRightWidth: '1px',
+  borderBottomWidth: '1px',
+  borderLeftWidth: '1px',
   borderTopLeftRadius: '10px',
   borderTopRightRadius: '10px',
   borderBottomLeftRadius: '10px',
@@ -39,7 +52,6 @@ const initialState = {
   paddingBottom: '0px',
   paddingLeft: '0px',
   fontSize: '12pt',
-  borderColor: 'white',
 };
 
 const buttonStyle = (state = initialState, actions) => {
@@ -67,6 +79,48 @@ const buttonStyle = (state = initialState, actions) => {
       return {
         ...state,
         color: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+      };
+
+    case SET_BORDERCOLOR:
+      return {
+        ...state,
+        borderColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+      };
+
+    case SET_BORDERWIDTH:
+      return {
+        ...state,
+        borderTopWidth: payload,
+        borderRightWidth: payload,
+        borderBottomWidth: payload,
+        borderLeftWidth: payload,
+      };
+
+    case SET_BORDERWIDTH_TOP:
+      return {
+        ...state,
+        borderTopWidth: payload,
+      };
+    case SET_BORDERWIDTH_RIGHT:
+      return {
+        ...state,
+        borderRightWidth: payload,
+      };
+    case SET_BORDERWIDTH_BOTTOM:
+      return {
+        ...state,
+        borderBottomWidth: payload,
+      };
+    case SET_BORDERWIDTH_LEFT:
+      return {
+        ...state,
+        borderLeftWidth: payload,
+      };
+
+    case SET_BORDER:
+      return {
+        ...state,
+        border: payload,
       };
 
     case SET_BORDERRADIUS:
