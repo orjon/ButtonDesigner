@@ -35,10 +35,6 @@ const AdjustmentBorders = ({
     setBorderColor(color.rgb);
   };
 
-  // const handleDropDownChange = (color) => {
-  //   setBorderColor(color.rgb);
-  // };
-
   return (
     <AccordionItem title='Borders'>
       <section className='adjustSection'>
@@ -51,9 +47,17 @@ const AdjustmentBorders = ({
         />
         {lockBorders ? (
           <Fragment>
+            <RangeSlider
+              field='borderWidth'
+              changeHandler={setBorderWidth}
+              label='Thickness'
+              initial={1}
+              min={0}
+              max={25}
+            />
+
             <DropDown
               fieldName='dropdown1'
-              fieldText='DropDown1'
               value={borderStyle}
               values={[
                 'none',
@@ -69,13 +73,9 @@ const AdjustmentBorders = ({
               ]}
               handleChange={setBorderStyle}
             />
-            <RangeSlider
-              field='borderWidth'
-              changeHandler={setBorderWidth}
-              label='Thickness'
-              initial={1}
-              min={0}
-              max={25}
+            <ColorPicker
+              colorField={borderColor}
+              handleColorChange={handleBorderColorChange}
             />
           </Fragment>
         ) : (
@@ -114,13 +114,6 @@ const AdjustmentBorders = ({
             />
           </Fragment>
         )}
-
-        <section className='adjustColor'>
-          <ColorPicker
-            colorField={borderColor}
-            handleColorChange={handleBorderColorChange}
-          />
-        </section>
       </section>
     </AccordionItem>
   );

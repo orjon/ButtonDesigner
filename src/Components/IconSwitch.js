@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/IconSwitch.scss';
 import LinkIcon from '@material-ui/icons/Link';
 import LinkOffIcon from '@material-ui/icons/LinkOff';
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -30,18 +29,20 @@ const IconSwitch = ({ icon, value, valueChange, textTrue, textFalse }) => {
   }
 
   return (
-    <div className='IconSwitch'>
-      {value ? (
-        <div onClick={valueChange}>
-          {selectedIcon}
-          &nbsp;{textTrue}
-        </div>
-      ) : (
-        <div onClick={valueChange}>
-          {selectedIconOff}
-          &nbsp;{textFalse}
-        </div>
-      )}
+    <div className='adjustmentContainer'>
+      <div className='iconSwitch'>
+        {value ? (
+          <div onClick={valueChange}>
+            {selectedIcon}
+            &nbsp;{textTrue}
+          </div>
+        ) : (
+          <div onClick={valueChange}>
+            {selectedIconOff}
+            &nbsp;{textFalse}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
