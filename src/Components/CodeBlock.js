@@ -10,7 +10,14 @@ const CodeBlock = ({ buttonStyle }) => {
     backgroundColor,
     color,
     borderStyle,
-    borderColor,
+    borderTopStyle,
+    borderRightStyle,
+    borderBottomStyle,
+    borderLeftStyle,
+    borderTopColor,
+    borderRightColor,
+    borderBottomColor,
+    borderLeftColor,
     borderTopWidth,
     borderRightWidth,
     borderBottomWidth,
@@ -36,12 +43,14 @@ const CodeBlock = ({ buttonStyle }) => {
       parseInt(value.replace(/\D/g, ''))
     );
 
+    console.log();
+
     // If all numbers are 0 - return (thus don't display attribute)
     if (!numberValues.some((value) => value !== 0)) return;
 
     let values = <span className='valueNumber'> {value[0]}</span>;
 
-    if (!numberValues.every((val, i, arr) => val === arr[0])) {
+    if (!value.every((val, i, arr) => val === arr[0])) {
       values = value.map((value) => (
         <span key={uuid()} className='valueNumber'>
           {' '}
@@ -83,10 +92,23 @@ const CodeBlock = ({ buttonStyle }) => {
               borderBottomRightRadius,
             ],
           })}
-          {ObjectCode({ type: 'border-color', value: [borderColor] })}
+          {ObjectCode({
+            type: 'border-color',
+            value: [
+              borderTopColor,
+              borderRightColor,
+              borderBottomColor,
+              borderLeftColor,
+            ],
+          })}
           {ObjectCode({
             type: 'border-style',
-            value: [borderStyle],
+            value: [
+              borderTopStyle,
+              borderRightStyle,
+              borderBottomStyle,
+              borderLeftStyle,
+            ],
           })}
           {ObjectCode({
             type: 'border-width',

@@ -17,6 +17,12 @@
     border-bottom: 1px solid $dark2;
     width: 100%;
 
+    .adjustDivider {
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px solid $dark2;
+    }
+
     .adjustmentContainer {
       @include flexColumnTopLeft;
       border: $devBorder solid lime;

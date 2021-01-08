@@ -4,13 +4,20 @@ import {
   SET_BACKGROUNDCOLOR,
   SET_COLOR,
   SET_BORDERSTYLE,
+  SET_BORDERSTYLE_TOP,
+  SET_BORDERSTYLE_RIGHT,
+  SET_BORDERSTYLE_BOTTOM,
+  SET_BORDERSTYLE_LEFT,
   SET_BORDERCOLOR,
+  SET_BORDERCOLOR_TOP,
+  SET_BORDERCOLOR_RIGHT,
+  SET_BORDERCOLOR_BOTTOM,
+  SET_BORDERCOLOR_LEFT,
   SET_BORDERWIDTH,
   SET_BORDERWIDTH_TOP,
   SET_BORDERWIDTH_RIGHT,
   SET_BORDERWIDTH_BOTTOM,
   SET_BORDERWIDTH_LEFT,
-  SET_BORDER,
   SET_BORDERRADIUS,
   SET_BORDERRADIUS_TOPLEFT,
   SET_BORDERRADIUS_TOPRIGHT,
@@ -58,10 +65,36 @@ export const setColor = (value) => async (dispatch) => {
 };
 
 export const setBorderStyle = (value) => async (dispatch) => {
-  console.log('Value:', value);
-
   dispatch({
     type: SET_BORDERSTYLE,
+    payload: value,
+  });
+};
+
+export const setBorderStyleTop = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERSTYLE_TOP,
+    payload: value,
+  });
+};
+
+export const setBorderStyleRight = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERSTYLE_RIGHT,
+    payload: value,
+  });
+};
+
+export const setBorderStyleBottom = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERSTYLE_BOTTOM,
+    payload: value,
+  });
+};
+
+export const setBorderStyleLeft = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERSTYLE_LEFT,
     payload: value,
   });
 };
@@ -69,6 +102,33 @@ export const setBorderStyle = (value) => async (dispatch) => {
 export const setBorderColor = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERCOLOR,
+    payload: value,
+  });
+};
+export const setBorderColorTop = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERCOLOR_TOP,
+    payload: value,
+  });
+};
+
+export const setBorderColorRight = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERCOLOR_RIGHT,
+    payload: value,
+  });
+};
+
+export const setBorderColorBottom = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERCOLOR_BOTTOM,
+    payload: value,
+  });
+};
+
+export const setBorderColorLeft = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_BORDERCOLOR_LEFT,
     payload: value,
   });
 };
