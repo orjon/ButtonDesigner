@@ -12,7 +12,7 @@ import {
 } from '../actions/buttonStyle';
 import '../styles/Adjustments.scss';
 
-const Adjustments = ({
+const AdjustmentMargins = ({
   setMargin,
   setMarginTop,
   setMarginRight,
@@ -93,4 +93,4 @@ export default connect(null, {
   setMarginRight,
   setMarginBottom,
   setMarginLeft,
-})(Adjustments);
+})(AdjustmentMargins);

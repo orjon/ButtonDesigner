@@ -1,13 +1,6 @@
 @import 'Variables';
 @import 'FlexLayouts';
 
-$ObjectName: #d7ba7d;
-$ObjectBracket: #c586c0;
-$ObjectKey: #9cdcfe;
-$ObjectPunctuation: #d4d4d4;
-$ObjectValueNumber: #b5cea8;
-$ObjectValueString: #ce9178;
-
 .CodeBlock {
   @include flexColumnTopLeft;
   border: $devBorder solid blue;

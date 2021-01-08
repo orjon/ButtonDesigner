@@ -42,14 +42,22 @@ const initialState = {
   backgroundColor: 'rgba(31,143,255,1)',
   color: 'rgba(255,255,255,1)',
 
-  borderStyle: 'solid',
+  // borderStyle: 'solid',
 
   borderTopStyle: 'solid',
   borderRightStyle: 'solid',
   borderBottomStyle: 'solid',
   borderLeftStyle: 'solid',
 
-  borderColor: 'rgba(255,255,255,1)',
+  // boxShadow: '1px 10px 20px 5px rgba(100,255,0,1)',
+
+  shadowColor: 'rgba(100,255,0,1)',
+  shadowOffset: { width: '5px', height: '10px' },
+  shadowOpacity: '2px',
+  shadowRadius: '2px',
+  elevation: '5px',
+
+  // borderColor: 'rgba(255,255,255,1)',
   borderTopColor: 'rgba(255,255,255,1)',
   borderRightColor: 'rgba(255,255,255,1)',
   borderBottomColor: 'rgba(255,255,255,1)',
@@ -64,6 +72,12 @@ const initialState = {
   borderTopRightRadius: '10px',
   borderBottomLeftRadius: '10px',
   borderBottomRightRadius: '10px',
+
+  shadowHOffset: '0px',
+  shadowVOffset: '0px',
+  shadowBlur: '0px',
+  shadowSpread: '0px',
+
   marginTop: '0px',
   marginRight: '0px',
   marginBottom: '0px',

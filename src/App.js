@@ -2,6 +2,7 @@ import React from 'react';
 import Adjustments from './Components/Adjustments';
 import ButtonPreview from './Components/ButtonPreview';
 import CodeBlock from './Components/CodeBlock';
+import Footer from './Components/Footer';
 import './styles/App.scss';
 
 // Redux
@@ -23,6 +24,7 @@ const App = () => {
         <footer>
           <CodeBlock />
         </footer>
+        <Footer />
       </div>
     </Provider>
   );

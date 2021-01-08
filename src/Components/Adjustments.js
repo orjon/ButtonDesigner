@@ -4,9 +4,10 @@ import AdjustmentSize from './AdjustmentSize';
 import AdjustmentColor from './AdjustmentColor';
 import AdjustmentText from './AdjustmentText';
 import AdjustmentBorders from './AdjustmentBorders';
+// import AdjustmentShadow from './AdjustmentShadow';
 import AdjustmentCorners from './AdjustmentCorners';
-import AdjustmentMargins from './AdjustmentMargins';
-import AdjustmentPadding from './AdjustmentPadding';
+// import AdjustmentMargins from './AdjustmentMargins';
+// import AdjustmentPadding from './AdjustmentPadding';
 import RangeSlider from './RangeSlider';
 import { setHeight, setWidth } from '../actions/buttonStyle';
 import '../styles/Adjustments.scss';
@@ -34,12 +35,15 @@ const Adjustments = ({ setHeight, setWidth }) => {
         <AccordionItem title='Border'>
           <AdjustmentBorders />
         </AccordionItem>
+        {/* <AccordionItem title='Shadow / Glow'>
+          <AdjustmentShadow />
+        </AccordionItem>
         <AccordionItem title='Margin'>
           <AdjustmentMargins />
         </AccordionItem>
         <AccordionItem title='Padding'>
           <AdjustmentPadding />
-        </AccordionItem>
+        </AccordionItem> */}
       </Accordion>
     </div>
   );
