@@ -31,13 +31,13 @@ const Adjustments = ({
         textTrue='Margins linked'
         textFalse='Margins unlinked'
       />
-      <IconSwitch
+      {/* <IconSwitch
         icon='visibility'
         value={seeMargin}
         valueChange={toggleSeeMargin}
         textTrue='Visible'
         textFalse='Not visible'
-      />
+      /> */}
 
       {lockMargins ? (
         <RangeSlider

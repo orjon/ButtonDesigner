@@ -1,7 +1,7 @@
 import { SET_TEXT } from '../actions/types';
 
 const initialState = {
-  text: 'Test 123',
+  text: 'Button Text',
 };
 
 const buttonText = (state = initialState, actions) => {

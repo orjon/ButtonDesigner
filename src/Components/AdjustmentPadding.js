@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { AccordionItem } from 'react-light-accordion';
 import { connect } from 'react-redux';
 import useToggle from '../helpers/useToggle';
 import RangeSlider from './RangeSlider';
@@ -24,69 +23,66 @@ const Adjustments = ({
   const [lockPadding, toggleLockPadding] = useToggle(true);
 
   return (
-    <AccordionItem title='Padding'>
-      <section className='adjustSection adjustSize'>
-        {/* <IconSwitch
+    <section className='adjustSection'>
+      {/* <IconSwitch
               icon='visibility'
               value={seePadding}
               valueChange={toggleSeePadding}
               textTrue='Visible'
               textFalse='Not visible'
             /> */}
-        <IconSwitch
-          icon='link'
-          value={lockPadding}
-          valueChange={toggleLockPadding}
-          textTrue='Padding linked'
-          textFalse='Padding unlinked'
+      <IconSwitch
+        icon='link'
+        value={lockPadding}
+        valueChange={toggleLockPadding}
+        textTrue='Padding linked'
+        textFalse='Padding unlinked'
+      />
+      {lockPadding ? (
+        <RangeSlider
+          field='padding'
+          changeHandler={setPadding}
+          initial={50}
+          min={0}
+          max={500}
         />
-        {lockPadding ? (
+      ) : (
+        <Fragment>
           <RangeSlider
-            field='padding'
-            changeHandler={setPadding}
-            label='Padding'
-            initial={50}
+            field='paddingTop'
+            changeHandler={setPaddingTop}
+            label='Top'
+            initial={0}
             min={0}
-            max={500}
+            max={50}
           />
-        ) : (
-          <Fragment>
-            <RangeSlider
-              field='paddingTop'
-              changeHandler={setPaddingTop}
-              label='Top'
-              initial={0}
-              min={0}
-              max={50}
-            />
-            <RangeSlider
-              field='paddingRight'
-              changeHandler={setPaddingRight}
-              label='Right'
-              initial={0}
-              min={0}
-              max={50}
-            />
-            <RangeSlider
-              field='paddingBottom'
-              changeHandler={setPaddingBottom}
-              label='Bottom'
-              initial={0}
-              min={0}
-              max={50}
-            />
-            <RangeSlider
-              field='paddingLeft'
-              changeHandler={setPaddingLeft}
-              label='Left'
-              initial={0}
-              min={0}
-              max={50}
-            />
-          </Fragment>
-        )}
-      </section>
-    </AccordionItem>
+          <RangeSlider
+            field='paddingRight'
+            changeHandler={setPaddingRight}
+            label='Right'
+            initial={0}
+            min={0}
+            max={50}
+          />
+          <RangeSlider
+            field='paddingBottom'
+            changeHandler={setPaddingBottom}
+            label='Bottom'
+            initial={0}
+            min={0}
+            max={50}
+          />
+          <RangeSlider
+            field='paddingLeft'
+            changeHandler={setPaddingLeft}
+            label='Left'
+            initial={0}
+            min={0}
+            max={50}
+          />
+        </Fragment>
+      )}
+    </section>
   );
 };
 

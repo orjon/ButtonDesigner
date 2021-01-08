@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 import '../styles/CodeBlock.scss';
 
 const CodeBlock = ({ buttonStyle }) => {
@@ -8,7 +9,15 @@ const CodeBlock = ({ buttonStyle }) => {
     width,
     backgroundColor,
     color,
-    borderColor,
+    borderStyle,
+    borderTopStyle,
+    borderRightStyle,
+    borderBottomStyle,
+    borderLeftStyle,
+    borderTopColor,
+    borderRightColor,
+    borderBottomColor,
+    borderLeftColor,
     borderTopWidth,
     borderRightWidth,
     borderBottomWidth,
@@ -34,14 +43,19 @@ const CodeBlock = ({ buttonStyle }) => {
       parseInt(value.replace(/\D/g, ''))
     );
 
+    console.log();
+
     // If all numbers are 0 - return (thus don't display attribute)
     if (!numberValues.some((value) => value !== 0)) return;
 
     let values = <span className='valueNumber'> {value[0]}</span>;
 
-    if (!numberValues.every((val, i, arr) => val === arr[0])) {
+    if (!value.every((val, i, arr) => val === arr[0])) {
       values = value.map((value) => (
-        <span className='valueNumber'> {value}</span>
+        <span key={uuid()} className='valueNumber'>
+          {' '}
+          {value}
+        </span>
       ));
     }
 
@@ -78,7 +92,24 @@ const CodeBlock = ({ buttonStyle }) => {
               borderBottomRightRadius,
             ],
           })}
-          {ObjectCode({ type: 'border-color', value: [borderColor] })}
+          {ObjectCode({
+            type: 'border-color',
+            value: [
+              borderTopColor,
+              borderRightColor,
+              borderBottomColor,
+              borderLeftColor,
+            ],
+          })}
+          {ObjectCode({
+            type: 'border-style',
+            value: [
+              borderTopStyle,
+              borderRightStyle,
+              borderBottomStyle,
+              borderLeftStyle,
+            ],
+          })}
           {ObjectCode({
             type: 'border-width',
             value: [

@@ -4,8 +4,16 @@ import {
   SET_BACKGROUNDCOLOR,
   SET_COLOR,
   SET_BORDERRADIUS,
+  SET_BORDERSTYLE,
+  SET_BORDERSTYLE_TOP,
+  SET_BORDERSTYLE_RIGHT,
+  SET_BORDERSTYLE_BOTTOM,
+  SET_BORDERSTYLE_LEFT,
   SET_BORDERCOLOR,
-  SET_BORDER,
+  SET_BORDERCOLOR_TOP,
+  SET_BORDERCOLOR_RIGHT,
+  SET_BORDERCOLOR_BOTTOM,
+  SET_BORDERCOLOR_LEFT,
   SET_BORDERWIDTH,
   SET_BORDERWIDTH_TOP,
   SET_BORDERWIDTH_RIGHT,
@@ -33,12 +41,25 @@ const initialState = {
   width: '200px',
   backgroundColor: 'rgba(31,143,255,1)',
   color: 'rgba(255,255,255,1)',
-  borderColor: 'rgba(255,255,255,1)',
+
   borderStyle: 'solid',
+
+  borderTopStyle: 'solid',
+  borderRightStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderLeftStyle: 'solid',
+
+  borderColor: 'rgba(255,255,255,1)',
+  borderTopColor: 'rgba(255,255,255,1)',
+  borderRightColor: 'rgba(255,255,255,1)',
+  borderBottomColor: 'rgba(255,255,255,1)',
+  borderLeftColor: 'rgba(255,255,255,1)',
+
   borderTopWidth: '1px',
   borderRightWidth: '1px',
   borderBottomWidth: '1px',
   borderLeftWidth: '1px',
+
   borderTopLeftRadius: '10px',
   borderTopRightRadius: '10px',
   borderBottomLeftRadius: '10px',
@@ -81,10 +102,63 @@ const buttonStyle = (state = initialState, actions) => {
         color: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
 
+    case SET_BORDERSTYLE:
+      return {
+        ...state,
+        borderTopStyle: payload,
+        borderRightStyle: payload,
+        borderBottomStyle: payload,
+        borderLeftStyle: payload,
+      };
+
+    case SET_BORDERSTYLE_TOP:
+      return {
+        ...state,
+        borderTopStyle: payload,
+      };
+    case SET_BORDERSTYLE_RIGHT:
+      return {
+        ...state,
+        borderRightStyle: payload,
+      };
+    case SET_BORDERSTYLE_BOTTOM:
+      return {
+        ...state,
+        borderBottomStyle: payload,
+      };
+    case SET_BORDERSTYLE_LEFT:
+      return {
+        ...state,
+        borderLeftStyle: payload,
+      };
+
     case SET_BORDERCOLOR:
       return {
         ...state,
-        borderColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+        borderTopColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+        borderRightColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+        borderBottomColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+        borderLeftColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+      };
+    case SET_BORDERCOLOR_TOP:
+      return {
+        ...state,
+        borderTopColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+      };
+    case SET_BORDERCOLOR_RIGHT:
+      return {
+        ...state,
+        borderRightColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+      };
+    case SET_BORDERCOLOR_BOTTOM:
+      return {
+        ...state,
+        borderBottomColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
+      };
+    case SET_BORDERCOLOR_LEFT:
+      return {
+        ...state,
+        borderLeftColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
 
     case SET_BORDERWIDTH:
@@ -115,12 +189,6 @@ const buttonStyle = (state = initialState, actions) => {
       return {
         ...state,
         borderLeftWidth: payload,
-      };
-
-    case SET_BORDER:
-      return {
-        ...state,
-        border: payload,
       };
 
     case SET_BORDERRADIUS:

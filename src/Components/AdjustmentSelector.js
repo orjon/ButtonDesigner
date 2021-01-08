@@ -7,35 +7,18 @@ import { setColor, setFontSize } from '../actions/buttonStyle';
 import { setText } from '../actions/buttonText';
 import '../styles/Adjustments.scss';
 
-const AdjustmentSection = ({
-  buttonStyle,
-  buttonText,
-  setColor,
-  setFontSize,
-  setText,
-}) => {
+const AdjustmentSelector = ({ buttonStyle, buttonText, setText }) => {
   const { color } = buttonStyle;
   const { text } = buttonText;
 
   return (
     <section className='adjustSection'>
       <TextField
-        fieldName='buttonText'
+        fieldName='buttonClass'
+        // fieldText='Text'
         value={text}
-        placeHolder='Button Text'
+        placeHolder='.class'
         handleTextFieldChange={(e) => setText(e.target.value)}
-      />
-      <ColorPicker
-        colorField={color}
-        handleColorChange={(e) => setColor(e.rgb)}
-      />
-      <RangeSlider
-        field='textSize'
-        changeHandler={setFontSize}
-        label='Size'
-        initial={30}
-        min={1}
-        max={50}
       />
     </section>
   );
@@ -50,4 +33,4 @@ export default connect(mapStateToProps, {
   setColor,
   setFontSize,
   setText,
-})(AdjustmentSection);
+})(AdjustmentSelector);

@@ -9,7 +9,7 @@ const TextField = ({
 }) => {
   return (
     <div className='adjustmentContainer'>
-      <div className='adjustmentLabel'>{fieldText}:</div>
+      {fieldText && <div className='adjustmentLabel'>{fieldText}:</div>}
       <form>
         <input
           className='textField'
