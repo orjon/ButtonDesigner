@@ -11,6 +11,9 @@
 # testing
 /coverage
 
+# Source image files
+/source
+
 # production
 /build
 
