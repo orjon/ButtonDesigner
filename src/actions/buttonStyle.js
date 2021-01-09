@@ -13,7 +13,8 @@ import {
   SET_BORDERCOLOR_RIGHT,
   SET_BORDERCOLOR_BOTTOM,
   SET_BORDERCOLOR_LEFT,
-  SET_SHADOW,
+  SET_BOXSHADOW,
+  SET_TEXTSHADOW,
   SET_BORDERWIDTH,
   SET_BORDERWIDTH_TOP,
   SET_BORDERWIDTH_RIGHT,
@@ -134,19 +135,19 @@ export const setBorderColorLeft = (value) => async (dispatch) => {
   });
 };
 
-export const setShadow = (value) => async (dispatch) => {
+export const setBoxShadow = (value) => async (dispatch) => {
   dispatch({
-    type: SET_SHADOW,
+    type: SET_BOXSHADOW,
     payload: value,
   });
 };
 
-// export const set
-
-// SET_SHADOWHOFFSET,
-// SET_SHADOWVOFFSET,
-// SET_SHADOWBLUR,
-// SET_SHADOWSPREAD,
+export const setTextShadow = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_TEXTSHADOW,
+    payload: value,
+  });
+};
 
 export const setBorderWidth = (value) => async (dispatch) => {
   dispatch({

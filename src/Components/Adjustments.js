@@ -5,14 +5,14 @@ import AdjustmentSize from './AdjustmentSize';
 import AdjustmentColor from './AdjustmentColor';
 import AdjustmentText from './AdjustmentText';
 import AdjustmentBorders from './AdjustmentBorders';
-import AdjustmentShadow from './AdjustmentShadow';
+import AdjustmentBoxShadow from './AdjustmentBoxShadow';
+import AdjustmentTextShadow from './AdjustmentTextShadow';
 import AdjustmentCorners from './AdjustmentCorners';
 // import AdjustmentMargins from './AdjustmentMargins';
 // import AdjustmentPadding from './AdjustmentPadding';
 import '../styles/Adjustments.scss';
 
 const Adjustments = () => {
-  console.log(process.env.REACT_APP_GOOGLE_FONTS_KEY);
   return (
     <div className='Adjustments'>
       <div className='windowTitle'>Adjustments</div>
@@ -35,8 +35,11 @@ const Adjustments = () => {
         <AccordionItem title='Border'>
           <AdjustmentBorders />
         </AccordionItem>
-        <AccordionItem title='Shadow / Glow'>
-          <AdjustmentShadow />
+        <AccordionItem title='Box-Shadow'>
+          <AdjustmentBoxShadow />
+        </AccordionItem>
+        <AccordionItem title='Text-Shadow'>
+          <AdjustmentTextShadow />
         </AccordionItem>
         {/* <AccordionItem title='Margin'>
           <AdjustmentMargins />

@@ -37,6 +37,18 @@
         margin-bottom: $spacer0;
       }
 
+      // &.sectionLabel {
+      //   width: 100%;
+      //   font-size: 14px;
+      //   @include flexRowSpaceBetween;
+      // }
+
+      .adjustmentLabel {
+        width: 100%;
+        font-size: 12px;
+        @include flexRowSpaceBetween;
+      }
+
       form {
         width: 100%;
       }
@@ -68,12 +80,6 @@
           border-radius: 0px !important;
           box-shadow: 0px !important;
         }
-      }
-
-      .adjustmentLabel {
-        width: 100%;
-        font-size: 12px;
-        @include flexRowSpaceBetween;
       }
 
       select {

@@ -23,7 +23,8 @@ import {
   SET_BORDERRADIUS_TOPRIGHT,
   SET_BORDERRADIUS_BOTTOMRIGHT,
   SET_BORDERRADIUS_BOTTOMLEFT,
-  SET_SHADOW,
+  SET_BOXSHADOW,
+  SET_TEXTSHADOW,
   SET_MARGIN,
   SET_MARGIN_TOP,
   SET_MARGIN_RIGHT,
@@ -50,6 +51,7 @@ const initialState = {
   borderLeftStyle: 'solid',
 
   boxShadow: '0px 0px 0px 0px rgba(255,255,255,1)',
+  textShadow: '0px 0px 0px rgba(255,255,255,1)',
 
   borderTopColor: 'rgba(255,255,255,1)',
   borderRightColor: 'rgba(255,255,255,1)',
@@ -103,7 +105,7 @@ const buttonStyle = (state = initialState, actions) => {
         backgroundColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
 
-    case SET_SHADOW: {
+    case SET_BOXSHADOW: {
       const { inset, hOffset, vOffset, blur, spread, color } = payload;
 
       let insetValue = '';
@@ -119,6 +121,22 @@ const buttonStyle = (state = initialState, actions) => {
         return {
           ...state,
           boxShadow: `${insetValue} ${hOffset} ${vOffset} ${blur} ${spread} rgba(${color.r},${color.g},${color.b},${color.a})`,
+        };
+      }
+    }
+
+    case SET_TEXTSHADOW: {
+      const { hOffset, vOffset, blur, color } = payload;
+
+      if (payload === '0') {
+        return {
+          ...state,
+          textShadow: payload,
+        };
+      } else {
+        return {
+          ...state,
+          textShadow: `${hOffset} ${vOffset} ${blur} rgba(${color.r},${color.g},${color.b},${color.a})`,
         };
       }
     }
