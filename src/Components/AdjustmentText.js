@@ -4,18 +4,18 @@ import ColorPicker from './ColorPicker';
 import RangeSlider from './RangeSlider';
 import TextField from './TextField';
 import { setColor, setFontSize } from '../actions/buttonStyle';
-import { setText } from '../actions/buttonText';
+import { setText } from '../actions/buttonProperties';
 import '../styles/Adjustments.scss';
 
 const AdjustmentSection = ({
   buttonStyle,
-  buttonText,
+  buttonProperties,
   setColor,
   setFontSize,
   setText,
 }) => {
   const { color } = buttonStyle;
-  const { text } = buttonText;
+  const { text } = buttonProperties;
 
   return (
     <section className='adjustSection'>
@@ -43,7 +43,7 @@ const AdjustmentSection = ({
 
 const mapStateToProps = (state) => ({
   buttonStyle: state.buttonStyle,
-  buttonText: state.buttonText,
+  buttonProperties: state.buttonProperties,
 });
 
 export default connect(mapStateToProps, {

@@ -13,10 +13,7 @@ import {
   SET_BORDERCOLOR_RIGHT,
   SET_BORDERCOLOR_BOTTOM,
   SET_BORDERCOLOR_LEFT,
-  SET_SHADOWHOFFSET,
-  SET_SHADOWVOFFSET,
-  SET_SHADOWBLUR,
-  SET_SHADOWSPREAD,
+  SET_SHADOW,
   SET_BORDERWIDTH,
   SET_BORDERWIDTH_TOP,
   SET_BORDERWIDTH_RIGHT,
@@ -133,6 +130,13 @@ export const setBorderColorBottom = (value) => async (dispatch) => {
 export const setBorderColorLeft = (value) => async (dispatch) => {
   dispatch({
     type: SET_BORDERCOLOR_LEFT,
+    payload: value,
+  });
+};
+
+export const setShadow = (value) => async (dispatch) => {
+  dispatch({
+    type: SET_SHADOW,
     payload: value,
   });
 };

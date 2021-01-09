@@ -23,6 +23,7 @@ import {
   SET_BORDERRADIUS_TOPRIGHT,
   SET_BORDERRADIUS_BOTTOMRIGHT,
   SET_BORDERRADIUS_BOTTOMLEFT,
+  SET_SHADOW,
   SET_MARGIN,
   SET_MARGIN_TOP,
   SET_MARGIN_RIGHT,
@@ -37,27 +38,19 @@ import {
 } from '../actions/types';
 
 const initialState = {
+  selector: 'myButton',
   height: '30px',
   width: '200px',
   backgroundColor: 'rgba(31,143,255,1)',
   color: 'rgba(255,255,255,1)',
-
-  // borderStyle: 'solid',
 
   borderTopStyle: 'solid',
   borderRightStyle: 'solid',
   borderBottomStyle: 'solid',
   borderLeftStyle: 'solid',
 
-  // boxShadow: '1px 10px 20px 5px rgba(100,255,0,1)',
+  boxShadow: '0px 0px 0px 0px rgba(255,255,255,1)',
 
-  shadowColor: 'rgba(100,255,0,1)',
-  shadowOffset: { width: '5px', height: '10px' },
-  shadowOpacity: '2px',
-  shadowRadius: '2px',
-  elevation: '5px',
-
-  // borderColor: 'rgba(255,255,255,1)',
   borderTopColor: 'rgba(255,255,255,1)',
   borderRightColor: 'rgba(255,255,255,1)',
   borderBottomColor: 'rgba(255,255,255,1)',
@@ -109,6 +102,26 @@ const buttonStyle = (state = initialState, actions) => {
         ...state,
         backgroundColor: `rgba(${payload.r},${payload.g},${payload.b},${payload.a})`,
       };
+
+    case SET_SHADOW: {
+      const { inset, hOffset, vOffset, blur, spread, color } = payload;
+
+      let insetValue = '';
+
+      if (inset) insetValue = 'inset';
+
+      if (payload === '0') {
+        return {
+          ...state,
+          boxShadow: payload,
+        };
+      } else {
+        return {
+          ...state,
+          boxShadow: `${insetValue} ${hOffset} ${vOffset} ${blur} ${spread} rgba(${color.r},${color.g},${color.b},${color.a})`,
+        };
+      }
+    }
 
     case SET_COLOR:
       return {

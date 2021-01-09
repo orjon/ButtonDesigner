@@ -26,6 +26,7 @@ const CodeBlock = ({ buttonStyle }) => {
     borderTopRightRadius,
     borderBottomLeftRadius,
     borderBottomRightRadius,
+    boxShadow,
     marginTop,
     marginRight,
     marginBottom,
@@ -118,6 +119,10 @@ const CodeBlock = ({ buttonStyle }) => {
               borderBottomWidth,
               borderLeftWidth,
             ],
+          })}
+          {ObjectCode({
+            type: 'box-shadow',
+            value: [boxShadow],
           })}
           {ObjectCode({
             type: 'margin',

@@ -34,7 +34,7 @@ const Adjustments = ({
       <IconSwitch
         icon='link'
         value={lockPadding}
-        valueChange={toggleLockPadding}
+        toggleValue={toggleLockPadding}
         textTrue='Padding linked'
         textFalse='Padding unlinked'
       />

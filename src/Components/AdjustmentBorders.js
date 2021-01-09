@@ -72,7 +72,7 @@ const AdjustmentBorders = ({
       <IconSwitch
         icon='link'
         value={lockBorders}
-        valueChange={toggleLockBorders}
+        toggleValue={toggleLockBorders}
         textTrue='Borders linked'
         textFalse='Borders unlinked'
       />

@@ -1,7 +1,8 @@
-import { SET_TEXT } from '../actions/types';
+import { SET_TEXT, SET_SELECTOR } from '../actions/types';
 
 const initialState = {
   text: 'Button Text',
+  selector: 'buttonSelector',
 };
 
 const buttonText = (state = initialState, actions) => {
@@ -9,6 +10,12 @@ const buttonText = (state = initialState, actions) => {
 
   switch (type) {
     case SET_TEXT:
+      return {
+        ...state,
+        text: payload,
+      };
+
+    case SET_SELECTOR:
       return {
         ...state,
         text: payload,
