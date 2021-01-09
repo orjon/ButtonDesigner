@@ -26,7 +26,7 @@ const AdjustmentCorners = ({
       <IconSwitch
         icon='link'
         value={lockCorners}
-        valueChange={toggleLockCorners}
+        toggleValue={toggleLockCorners}
         textTrue='Corners linked'
         textFalse='Corners unlinked'
       />

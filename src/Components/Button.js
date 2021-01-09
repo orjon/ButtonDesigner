@@ -2,17 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/Button.scss';
 
-const Button = ({ buttonStyle, buttonText }) => {
+const Button = ({ buttonStyle, buttonProperties }) => {
   return (
     <button id='previewButton' style={buttonStyle}>
-      {buttonText.text}
+      {buttonProperties.text}
     </button>
   );
 };
 
 const mapStateToProps = (state) => ({
   buttonStyle: state.buttonStyle,
-  buttonText: state.buttonText,
+  buttonProperties: state.buttonProperties,
 });
 
 export default connect(mapStateToProps, null)(Button);

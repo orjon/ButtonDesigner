@@ -27,7 +27,7 @@ const AdjustmentMargins = ({
       <IconSwitch
         icon='link'
         value={lockMargins}
-        valueChange={toggleLockMargins}
+        toggleValue={toggleLockMargins}
         textTrue='Margins linked'
         textFalse='Margins unlinked'
       />

@@ -1,71 +1,78 @@
-import React, { Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import useToggle from '../helpers/useToggle';
 import RangeSlider from './RangeSlider';
+import useToggle from '../helpers/useToggle';
+import ColorPicker from './ColorPicker';
 import IconSwitch from './IconSwitch';
-import {
-  setMargin,
-  setMarginTop,
-  setMarginRight,
-  setMarginBottom,
-  setMarginLeft,
-} from '../actions/buttonStyle';
+import { setShadow } from '../actions/buttonStyle';
 import '../styles/Adjustments.scss';
 
-const AdjustmentShadow = ({
-  setMargin,
-  setMarginTop,
-  setMarginRight,
-  setMarginBottom,
-  setMarginLeft,
-}) => {
-  const [seeMargin, toggleSeeMargin] = useToggle(false);
-  const [lockMargins, toggleLockMargins] = useToggle(true);
+const AdjustmentShadow = ({ setShadow }) => {
+  const [inset, toggleInset] = useToggle(false);
+  const [hOffset, setHOffSet] = useState('0px');
+  const [vOffset, setVOffSet] = useState('0px');
+  const [blur, setBlur] = useState('0px');
+  const [spread, setSpread] = useState('0px');
+  const [color, setColor] = useState({ r: 255, g: 255, b: 255, a: 1 });
 
-  // box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;
+  useEffect(() => {
+    //Check if these values are all 0.
+    const values = [hOffset, vOffset, blur, spread];
+    const numberValues = values.map((value) =>
+      parseInt(value.replace(/\D/g, ''))
+    );
+    if (!numberValues.some((value) => value !== 0)) {
+      setShadow('0');
+    } else {
+      setShadow({ hOffset, inset, vOffset, blur, spread, color });
+    }
+  }, [setShadow, inset, hOffset, vOffset, blur, spread, color]);
 
   return (
     <section className='adjustSection'>
-      <RangeSlider
-        field='marginTop'
-        changeHandler={setMarginTop}
-        label='Top'
-        initial={0}
-        min={0}
-        max={50}
+      <IconSwitch
+        icon='checkbox'
+        value={inset}
+        toggleValue={toggleInset}
+        textTrue='Inset'
+        textFalse='Inset'
       />
       <RangeSlider
-        field='marginRight'
-        changeHandler={setMarginRight}
-        label='Right'
+        changeHandler={setHOffSet}
+        label='X Offset'
         initial={0}
         min={0}
-        max={50}
+        max={200}
       />
       <RangeSlider
-        field='marginBottom'
-        changeHandler={setMarginBottom}
-        label='Bottom'
+        changeHandler={setVOffSet}
+        label='Y OffSet'
         initial={0}
         min={0}
-        max={50}
+        max={200}
       />
       <RangeSlider
-        field='marginLeft'
-        changeHandler={setMarginLeft}
-        label='Left'
+        changeHandler={setBlur}
+        label='Blur'
         initial={0}
         min={0}
-        max={50}
+        max={200}
+      />
+      <RangeSlider
+        changeHandler={setSpread}
+        label='Spread'
+        initial={0}
+        min={0}
+        max={200}
+      />
+      <ColorPicker
+        colorField={`rgba(${color.r},${color.g},${color.b},${color.a})`}
+        handleColorChange={(e) => setColor(e.rgb)}
       />
     </section>
   );
 };
 
 export default connect(null, {
-  setMargin,
-  setMarginTop,
-  setMarginRight,
-  setMarginBottom,
-  setMarginLeft,
+  setShadow,
 })(AdjustmentShadow);

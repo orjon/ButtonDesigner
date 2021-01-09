@@ -1,36 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ColorPicker from './ColorPicker';
-import RangeSlider from './RangeSlider';
+import useToggle from '../helpers/useToggle';
 import TextField from './TextField';
-import { setColor, setFontSize } from '../actions/buttonStyle';
-import { setText } from '../actions/buttonText';
+import IconSwitch from './IconSwitch';
+import { setSelector } from '../actions/buttonProperties';
 import '../styles/Adjustments.scss';
 
-const AdjustmentSelector = ({ buttonStyle, buttonText, setText }) => {
-  const { color } = buttonStyle;
-  const { text } = buttonText;
+const AdjustmentSelector = ({ buttonProperties, setSelector }) => {
+  const [id, toggleId] = useToggle(false);
+  const { selector } = buttonProperties;
 
   return (
     <section className='adjustSection'>
+      <IconSwitch
+        icon='checkbox'
+        value={id}
+        toggleValue={toggleId}
+        textTrue='#id'
+        textFalse='#id'
+      />
       <TextField
         fieldName='buttonClass'
-        // fieldText='Text'
-        value={text}
+        value={selector}
         placeHolder='.class'
-        handleTextFieldChange={(e) => setText(e.target.value)}
+        handleTextFieldChange={(e) => setSelector(e.target.value)}
       />
     </section>
   );
 };
 
 const mapStateToProps = (state) => ({
-  buttonStyle: state.buttonStyle,
-  buttonText: state.buttonText,
+  buttonProperties: state.buttonProperties,
 });
 
 export default connect(mapStateToProps, {
-  setColor,
-  setFontSize,
-  setText,
+  setSelector,
 })(AdjustmentSelector);

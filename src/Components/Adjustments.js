@@ -1,10 +1,11 @@
 import React from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
+import AdjustmentSelector from './AdjustmentSelector';
 import AdjustmentSize from './AdjustmentSize';
 import AdjustmentColor from './AdjustmentColor';
 import AdjustmentText from './AdjustmentText';
 import AdjustmentBorders from './AdjustmentBorders';
-// import AdjustmentShadow from './AdjustmentShadow';
+import AdjustmentShadow from './AdjustmentShadow';
 import AdjustmentCorners from './AdjustmentCorners';
 // import AdjustmentMargins from './AdjustmentMargins';
 // import AdjustmentPadding from './AdjustmentPadding';
@@ -35,10 +36,10 @@ const Adjustments = ({ setHeight, setWidth }) => {
         <AccordionItem title='Border'>
           <AdjustmentBorders />
         </AccordionItem>
-        {/* <AccordionItem title='Shadow / Glow'>
+        <AccordionItem title='Shadow / Glow'>
           <AdjustmentShadow />
         </AccordionItem>
-        <AccordionItem title='Margin'>
+        {/* <AccordionItem title='Margin'>
           <AdjustmentMargins />
         </AccordionItem>
         <AccordionItem title='Padding'>
