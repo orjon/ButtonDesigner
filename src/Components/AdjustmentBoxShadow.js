@@ -4,10 +4,10 @@ import RangeSlider from './RangeSlider';
 import useToggle from '../helpers/useToggle';
 import ColorPicker from './ColorPicker';
 import IconSwitch from './IconSwitch';
-import { setShadow } from '../actions/buttonStyle';
+import { setBoxShadow } from '../actions/buttonStyle';
 import '../styles/Adjustments.scss';
 
-const AdjustmentShadow = ({ setShadow }) => {
+const AdjustmentBoxShadow = ({ setBoxShadow }) => {
   const [inset, toggleInset] = useToggle(false);
   const [hOffset, setHOffSet] = useState('0px');
   const [vOffset, setVOffSet] = useState('0px');
@@ -22,11 +22,11 @@ const AdjustmentShadow = ({ setShadow }) => {
       parseInt(value.replace(/\D/g, ''))
     );
     if (!numberValues.some((value) => value !== 0)) {
-      setShadow('0');
+      setBoxShadow('0');
     } else {
-      setShadow({ hOffset, inset, vOffset, blur, spread, color });
+      setBoxShadow({ hOffset, inset, vOffset, blur, spread, color });
     }
-  }, [setShadow, inset, hOffset, vOffset, blur, spread, color]);
+  }, [setBoxShadow, inset, hOffset, vOffset, blur, spread, color]);
 
   return (
     <section className='adjustSection'>
@@ -74,5 +74,5 @@ const AdjustmentShadow = ({ setShadow }) => {
 };
 
 export default connect(null, {
-  setShadow,
-})(AdjustmentShadow);
+  setBoxShadow,
+})(AdjustmentBoxShadow);

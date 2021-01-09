@@ -9,7 +9,6 @@ const CodeBlock = ({ buttonStyle }) => {
     width,
     backgroundColor,
     color,
-    borderStyle,
     borderTopStyle,
     borderRightStyle,
     borderBottomStyle,
@@ -27,6 +26,7 @@ const CodeBlock = ({ buttonStyle }) => {
     borderBottomLeftRadius,
     borderBottomRightRadius,
     boxShadow,
+    textShadow,
     marginTop,
     marginRight,
     marginBottom,
@@ -123,6 +123,10 @@ const CodeBlock = ({ buttonStyle }) => {
           {ObjectCode({
             type: 'box-shadow',
             value: [boxShadow],
+          })}
+          {ObjectCode({
+            type: 'text-shadow',
+            value: [textShadow],
           })}
           {ObjectCode({
             type: 'margin',
