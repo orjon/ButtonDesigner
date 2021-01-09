@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
-import AdjustmentSelector from './AdjustmentSelector';
+// import AdjustmentSelector from './AdjustmentSelector';
 import AdjustmentSize from './AdjustmentSize';
 import AdjustmentColor from './AdjustmentColor';
 import AdjustmentText from './AdjustmentText';
@@ -9,11 +9,10 @@ import AdjustmentShadow from './AdjustmentShadow';
 import AdjustmentCorners from './AdjustmentCorners';
 // import AdjustmentMargins from './AdjustmentMargins';
 // import AdjustmentPadding from './AdjustmentPadding';
-import RangeSlider from './RangeSlider';
-import { setHeight, setWidth } from '../actions/buttonStyle';
 import '../styles/Adjustments.scss';
 
-const Adjustments = ({ setHeight, setWidth }) => {
+const Adjustments = () => {
+  console.log(process.env.REACT_APP_GOOGLE_FONTS_KEY);
   return (
     <div className='Adjustments'>
       <div className='windowTitle'>Adjustments</div>

@@ -4,7 +4,7 @@ import '../styles/Button.scss';
 
 const Button = ({ buttonStyle, buttonProperties }) => {
   return (
-    <button id='previewButton' style={buttonStyle}>
+    <button id='previewButton' className='apply-font' style={buttonStyle}>
       {buttonProperties.text}
     </button>
   );
