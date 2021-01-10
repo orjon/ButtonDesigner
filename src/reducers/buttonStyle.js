@@ -36,6 +36,7 @@ import {
   SET_PADDING_BOTTOM,
   SET_PADDING_LEFT,
   SET_FONTSIZE,
+  SET_FONTFAMILY,
 } from '../actions/types';
 
 const initialState = {
@@ -82,12 +83,18 @@ const initialState = {
   paddingBottom: '0px',
   paddingLeft: '0px',
   fontSize: '12pt',
+  fontFamily: 'Open Sans',
 };
 
 const buttonStyle = (state = initialState, actions) => {
   const { type, payload } = actions;
 
   switch (type) {
+    case SET_FONTFAMILY:
+      return {
+        ...state,
+        fontFamily: payload,
+      };
     case SET_HEIGHT:
       return {
         ...state,

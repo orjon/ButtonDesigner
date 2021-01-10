@@ -44,6 +44,7 @@ export const SET_PADDING_BOTTOM = 'SET_PADDING_BOTTOM';
 export const SET_PADDING_LEFT = 'SET_PADDING_LEFT';
 
 export const SET_FONTSIZE = 'SET_FONTSIZE';
+export const SET_FONTFAMILY = 'SET_FONTFAMILY';
 
 export const SET_TEXT = 'SET_TEXT';
 export const SET_SELECTOR = 'SET_SELECTOR';

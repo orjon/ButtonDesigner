@@ -36,7 +36,7 @@ const RangeSlider = ({
     <div className='adjustmentContainer'>
       <div className='adjustmentLabel'>
         <div className='sliderField'>
-          {label && label + ': '}
+          {label && label + ' '}
           <span id='sliderValue'>
             {sliderValue}
             {unit}

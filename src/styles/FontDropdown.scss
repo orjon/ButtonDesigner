@@ -2,6 +2,11 @@
 
 #font-picker {
   width: 100% !important;
+  box-shadow: 0px 0px white !important;
+  ul {
+    box-shadow: 0px 0px white !important;
+    // border-bottom: 1px solid $dark2 !important;
+  }
 }
 
 .dropdown-button {
@@ -19,15 +24,22 @@
 }
 
 .dropdown-font-family {
-  color: $light1;
-  font-size: 13.5px;
+  color: $light1 !important;
+  font-size: 13.5px !important;
 }
 
 .font-list {
   background-color: $dark1 !important;
+  color: green !important;
+}
+
+.font-button {
+  color: $light3 !important;
+  font-size: 13.5px !important;
+  height: 27px !important;
 }
 
 .active-font {
   background-color: $dark1 !important;
-  color: $light0;
+  color: $light1 !important;
 }

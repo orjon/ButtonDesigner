@@ -36,6 +36,7 @@ const CodeBlock = ({ buttonStyle }) => {
     paddingBottom,
     paddingLeft,
     fontSize,
+    fontFamily,
   } = buttonStyle;
 
   const ObjectCode = ({ type, value }) => {
@@ -82,6 +83,7 @@ const CodeBlock = ({ buttonStyle }) => {
           {ObjectCode({ type: 'height', value: [height] })}
           {ObjectCode({ type: 'width', value: [width] })}
           {ObjectCode({ type: 'background-color', value: [backgroundColor] })}
+          {ObjectCode({ type: 'font-family', value: [fontFamily] })}
           {ObjectCode({ type: 'color', value: [color] })}
           {ObjectCode({ type: 'font-size', value: [fontSize] })}
           {ObjectCode({

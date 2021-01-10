@@ -11,7 +11,7 @@ const DropDown = ({ fieldName, fieldText, value, values, handleChange }) => {
 
   return (
     <div className='adjustmentContainer'>
-      {fieldText && <div className='adjustmentLabel'>{fieldText}:</div>}
+      {fieldText && <div className='adjustmentLabel'>{fieldText}</div>}
       <form>
         <select
           value={value}
