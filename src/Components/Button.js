@@ -11,7 +11,8 @@ const Button = ({ buttonStyle, buttonStyleHover, buttonProperties }) => {
       onMouseLeave={() => setHovered(false)}
       id='previewButton'
       className='apply-font'
-      style={hovered ? buttonStyleHover : buttonStyle}
+      // style={hovered ? buttonStyleHover : buttonStyle}
+      style={buttonStyle}
     >
       {buttonProperties.text}
     </button>
