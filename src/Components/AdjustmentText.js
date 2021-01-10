@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ColorPicker from './ColorPicker';
 import RangeSlider from './RangeSlider';
 import TextField from './TextField';
+import FontDropdown from './FontDropdown';
 import { setColor, setFontSize } from '../actions/buttonStyle';
 import { setText } from '../actions/buttonProperties';
 import '../styles/Adjustments.scss';
@@ -25,17 +26,18 @@ const AdjustmentSection = ({
         placeHolder='Button Text'
         handleTextFieldChange={(e) => setText(e.target.value)}
       />
-      <ColorPicker
-        colorField={color}
-        handleColorChange={(e) => setColor(e.rgb)}
-      />
+      <FontDropdown />
       <RangeSlider
         field='textSize'
         changeHandler={setFontSize}
         label='Size'
-        initial={30}
+        initial={12}
         min={1}
         max={50}
+      />
+      <ColorPicker
+        colorField={color}
+        handleColorChange={(e) => setColor(e.rgb)}
       />
     </section>
   );

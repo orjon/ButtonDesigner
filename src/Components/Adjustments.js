@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion, AccordionItem } from 'react-light-accordion';
-// import AdjustmentSelector from './AdjustmentSelector';
+import AdjustmentSelector from './AdjustmentSelector';
 import AdjustmentSize from './AdjustmentSize';
 import AdjustmentColor from './AdjustmentColor';
 import AdjustmentText from './AdjustmentText';
@@ -17,9 +17,6 @@ const Adjustments = () => {
     <div className='Adjustments'>
       <div className='windowTitle'>Adjustments</div>
       <Accordion atomic={true}>
-        {/* <AccordionItem title='Selector'>
-          <AdjustmentSelector />
-        </AccordionItem> */}
         <AccordionItem className='active' title='Size'>
           <AdjustmentSize />
         </AccordionItem>
@@ -47,6 +44,9 @@ const Adjustments = () => {
         <AccordionItem title='Padding'>
           <AdjustmentPadding />
         </AccordionItem> */}
+        <AccordionItem title='Selector'>
+          <AdjustmentSelector />
+        </AccordionItem>
       </Accordion>
     </div>
   );

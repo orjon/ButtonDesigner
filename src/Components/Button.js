@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../styles/Button.scss';
 
-const Button = ({ buttonStyle, buttonProperties }) => {
+const Button = ({ buttonStyle, buttonStyleHover, buttonProperties }) => {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <button id='previewButton' className='apply-font' style={buttonStyle}>
+    <button
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      id='previewButton'
+      className='apply-font'
+      style={hovered ? buttonStyleHover : buttonStyle}
+    >
       {buttonProperties.text}
     </button>
   );
@@ -12,6 +20,7 @@ const Button = ({ buttonStyle, buttonProperties }) => {
 
 const mapStateToProps = (state) => ({
   buttonStyle: state.buttonStyle,
+  buttonStyleHover: state.buttonStyleHover,
   buttonProperties: state.buttonProperties,
 });
 

@@ -7,11 +7,19 @@ import { setSelector } from '../actions/buttonProperties';
 import '../styles/Adjustments.scss';
 
 const AdjustmentSelector = ({ buttonProperties, setSelector }) => {
+  const [useSelector, toggleUseSelector] = useToggle(false);
   const [id, toggleId] = useToggle(false);
   const { selector } = buttonProperties;
 
   return (
     <section className='adjustSection'>
+      <IconSwitch
+        icon='checkbox'
+        value={useSelector}
+        toggleValue={toggleUseSelector}
+        textTrue='Specify class/id'
+        textFalse='Specify class/id'
+      />
       <IconSwitch
         icon='checkbox'
         value={id}
