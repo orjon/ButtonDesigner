@@ -44,9 +44,9 @@ const Adjustments = () => {
         <AccordionItem title='Padding'>
           <AdjustmentPadding />
         </AccordionItem> */}
-        <AccordionItem title='Selector'>
+        {/* <AccordionItem title='Selector'>
           <AdjustmentSelector />
-        </AccordionItem>
+        </AccordionItem> */}
       </Accordion>
     </div>
   );
